@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :get_image, only: [:edit, :update, :destroy]
+
   def index
     @images = Image.all
   end
@@ -18,11 +20,9 @@ class ImagesController < ApplicationController
   end
 
   def edit
-    @image = Image.find(params[:id])
   end
 
   def update
-    @image = Image.find(params[:id])
     if @image.update_attributes(image_params)
       flash[:success] = "Image successfully updated"
       redirect_to gallery_path
@@ -32,11 +32,17 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-
+    @image.destroy
+    flash[:info] = "Image deleted"
+    redirect_to gallery_path
   end
 
   private
     def image_params
       params.require(:image).permit(:event,:people,:image)
+    end
+
+    def get_image
+      @image = Image.find(params[:id])
     end
 end

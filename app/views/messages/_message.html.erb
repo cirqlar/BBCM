@@ -1,0 +1,12 @@
+<div class="s">
+  <h2><%= message.title %></h2>
+  <p>
+    <%= message.description %>
+  </p>
+  <p>
+    Tags: <%= raw tag_links message.tag_list %>
+  </p>
+  <%= image_tag message.poster.url if message.poster %>
+  <%= message.content_type %>
+  <%= link_to "delete", message, method: :delete, data: {confrim: "Are you sure?"} %>
+</div>

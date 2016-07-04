@@ -1,0 +1,20 @@
+<%= form_for(@message, html: {multipart: true}) do |f| %>
+  <%= render 'shared/errors', object: f.object %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :tag_list, "Tags (seperated by commas ',')" %>
+  <%= f.text_field :tag_list %>
+
+  <%= f.label :poster %>
+  <%= f.file_field :poster %>
+
+  <%= f.label :media %>
+  <%= f.file_field :media %>
+
+  <%= f.submit "Save Message" %>
+<% end %>
