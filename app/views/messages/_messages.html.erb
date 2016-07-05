@@ -1,0 +1,19 @@
+<div class="cf" id="messagesCont">
+  <div class="cont cf">
+    <div id="tabs" class="cf">
+      <span class="<%= 'current' if params[:type] == '' || !params[:type] %>" id="All">All</span>
+      <span class="<%= 'current' if params[:type] == 'video' %>" id="Video">Video</span>
+      <span class="<%= 'current' if params[:type] == 'audio' %>" id="Audio">Audio</span>
+    </div>
+    <div id="filterCont" class="cf">
+      <label for="filter">Filter Tags</label>
+      <input type="search" name="filter" id="filter" placeholder="e.g. Inspiration">
+    </div>
+  </div>
+
+  <div class="cf" id="messages">
+    <% @messages.each do |message| %>
+      <%= render message %>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,7 @@
-<h1>Images#index</h1>
+<div class="cf" id="gallery">
+  <% @images.each do |image| %>
+    <%= render image %>
+  <% end %>
+</div>
 
-
-<% @images.each do |image| %>
-  <%= render image %>
-<% end %>
+<div id="modal"></div>

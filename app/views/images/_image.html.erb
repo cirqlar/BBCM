@@ -1,6 +1,9 @@
-<div class="">
-  <h2><%= image.event %></h2>
-  <h3><%= image.people %></h3>
-  <%= image_tag image.image.url if image.image? %>
+<div class="image">
+  <%= image_tag image.image.url, alt: image.event if image.image? %>
+  <div class="details">
+    <span class="event"><%= image.event %></span>
+    <span class="people"><%= image.people %></span>
+    <span class="date"><%= image.updated_at %></span>
+  </div>
   <%= link_to "delete", image, method: :delete, data: {confrim: "Are you sure?"} %>
 </div>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :messages, except: [:show]
   get 'message' => 'messages#show', as: :show_message
 
+  resources :slides
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

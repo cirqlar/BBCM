@@ -1,0 +1,13 @@
+<div id="header" class="open">
+  <div class="cont">
+    <div id="left" class="headerItems nav">
+      <span><%= link_to 'Messages', show_message_path, class: "#{'current' if controller?('messages')}" %></span>
+      <span><%= link_to 'About', about_path, class: "#{'current' if action?('about')}" %></span>
+    </div>
+    <a href="index.html" id="center" class="headerItems"><img src="/logo.png" alt="logo" id="logo" /></a>
+    <div id="right" class="headerItems nav">
+      <span><%= link_to 'Contact', contact_path, class: "#{'current' if action?('contact')}" %></span>
+      <span><%= link_to 'Gallery', gallery_path, class: "#{'current' if controller?('images')}" %></span>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BBCM</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class="flash">
-  <% flash.each do |type, msg| %>
-    <p class="<%= type %>">
-      <%= msg %>
-    </p>
-  <% end %>
-</div>
-<%= yield %>
-<%=	debug(params)	if	Rails.env.development?	%>
-</body>
+  <head>
+    <title>BBCM</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="bodyCont">
+      <div class="flash">
+        <% flash.each do |type, msg| %>
+          <p class="<%= type %>">
+            <%= msg %>
+          </p>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    <%=	debug(params)	if	Rails.env.development?	%>
+  </body>
 </html>
