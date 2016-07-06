@@ -1,0 +1,13 @@
+<h1>Subscribers#new</h1>
+
+<%= form_for(@subscriber) do |f| %>
+  <%= render 'shared/errors', object: f.object %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name%>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit 'Subscribe' %>
+<% end %>
