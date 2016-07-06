@@ -2,11 +2,21 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(sub_params)
     if @subscriber.save
-      flash[:success] = "You have successfully subscribed"
-      redirect_to root_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = "You have successfully subscribed"
+          redirect_to root_path
+        end
+        format.js
+      end
     else
-      flash[:danger] = @subscriber.errors.full_messages.map { |t| t }.join(', ')
-      redirect_to root_path
+      respond_to do |format|
+        format.html do
+          flash[:danger] = @subscriber.errors.full_messages.map { |t| t }.join(', ')
+          redirect_to root_path
+        end
+        format.js { render 'shared/errors' }
+      end
     end
   end
 

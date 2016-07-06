@@ -1,6 +1,8 @@
 Subscribe
+<div class="cf" id="sub_create">
 
-<%= form_for(@subscriber) do |f| %>
+</div>
+<%= form_for @subscriber, remote: true do |f| %>
   <%= render 'shared/errors', object: f.object %>
 
   <%= f.label :name %>
