@@ -1,0 +1,8 @@
+<div class="an">
+  <% an ||= announcement %>
+  <h3><%= an.title %></h3>
+  <p>
+    <%= params[:action] == 'show' ? an.desc : truncate(an.desc, length: 30) %>
+  </p>
+  <span><%= an.expires_at %></span>
+</div>
