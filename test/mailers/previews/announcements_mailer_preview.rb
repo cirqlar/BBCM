@@ -4,7 +4,7 @@ class AnnouncementsMailerPreview < ActionMailer::Preview
   # Preview this email at http://localhost:3000/rails/mailers/announcements_mailer/announce
   def announce
     suber = Subscriber.first
-    an = Announcement.first
+    an = Announcement.last
     AnnouncementsMailer.announce(suber, an)
   end
 

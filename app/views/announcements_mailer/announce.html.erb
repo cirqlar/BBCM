@@ -1,9 +1,9 @@
-<h1><%= @an.title %></h1>
+<h1><%= @an.title.split.map(&:capitalize).join(' ') %></h1>
 
 <h3>Dear <%= @suber.name.split.map(&:capitalize).join(' ') %></h3>
 
-<p>
-  <%= @an.desc %>
-</p>
+<pre style="font-family: serif">
+  <%= raw @an.desc %>
+</pre>
 
 <%= link_to 'Unsubscribe', subs_destroy_url(@suber, token: @suber.token), target: "_blank" %>
