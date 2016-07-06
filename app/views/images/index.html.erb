@@ -1,6 +1,6 @@
 <div class="cf" id="gallery">
   <% @images.each do |image| %>
-    <%= render image %>
+    <%= link_to content_tag(:div, "", style: "background-image: url(#{image.image.url})"), image, class: "Image" %>
   <% end %>
 </div>
 

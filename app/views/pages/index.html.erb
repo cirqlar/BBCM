@@ -1,2 +1,13 @@
 <h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+
+<div class="cf" id="slideCont">
+  <%= render @slides %>
+</div>
+
+<div class="cf" id="ans">
+  <%= render @ans %>
+</div>
+
+<div class="cf" id="sub">
+  <%= render 'subscribers/form' %>
+</div>

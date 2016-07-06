@@ -1,2 +1,17 @@
 <h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+
+<%= form_for(:pages, url: send_path) do |f| %>
+  <%= f.label :sender, "Full Name" %>
+  <%= f.text_field :sender %>
+
+  <%= f.label :email, "Email Address" %>
+  <%= f.email_field :email %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.submit "Send email" %>
+<% end %>

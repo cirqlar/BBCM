@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
   root 'pages#index'
   get 'contact' => 'pages#contact'
+  post 'send' => 'pages#create'
   get 'about' => 'pages#about'
 
   get 'gallery' => 'images#index'
-  resources :images, only: [:new, :create, :edit, :update, :destroy]
+  resources :images, except: [:index]
 
   resources :messages, except: [:show]
   get 'message' => 'messages#show', as: :show_message
 
   resources :slides
   resources :announcements, :path => 'ans'
-  resources :subscribers, only: [:new, :create], :path => 'subs'
+  resources :subscribers, only: [:create]
   get 'subs/:id' => 'subscribers#destroy', as: :subs_destroy
 
   # The priority is based upon order of creation: first created -> highest priority.
