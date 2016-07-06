@@ -1,0 +1,7 @@
+<%= @an.title %>
+
+Dear <%= @suber.name.split.map(&:capitalize).join(' ') %>
+
+<%= @an.desc %>
+
+Unsubscribe link: <%= subs_destroy_url(@suber, token: @suber.token) %>

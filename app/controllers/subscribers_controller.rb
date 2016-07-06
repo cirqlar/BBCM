@@ -15,8 +15,12 @@ class SubscribersController < ApplicationController
 
   def destroy
     @subscriber = Subscriber.find(params[:id])
-    @subscriber.destroy
-    flash[:info] = "You have successfully unsubscribed"
+    if @subscriber.token == params[:token]
+      @subscriber.destroy
+      flash[:info] = "You have successfully unsubscribed"
+    else
+      flash[:danger] = "Invalid link"
+    end
     redirect_to root_path
   end
 

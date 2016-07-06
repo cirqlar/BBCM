@@ -2,8 +2,9 @@ class Announcement < ActiveRecord::Base
   validates :title, presence: true, length: {maximum: 30}
   validates :desc, presence: true, length: {maximum: 250}
   validates :expires_at, presence: true
-
   validate :validate_expires_at
+
+  after_save :announce
 
   private
     def validate_expires_at
@@ -12,6 +13,12 @@ class Announcement < ActiveRecord::Base
         if hours < DateTime.now
           errors.add(:expires_at, "must be at least 24 hours from now")
         end
+      end
+    end
+
+    def announce
+      Subscriber.all.each do |suber|
+        AnnouncementsMailer.announce(suber, self).deliver
       end
     end
 end
