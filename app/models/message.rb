@@ -1,4 +1,6 @@
 class Message < ActiveRecord::Base
+  default_scope -> { order(created_at: :desc) }
+
   mount_uploader :poster, ImageUploader
   mount_uploader :media, MediaUploader
   acts_as_taggable

@@ -1,3 +1,18 @@
-<h1>Messages#index</h1>
+<div id="mediaCont">
+  <%= render 'show_message' %>
+</div>
+<div class="cf" id="messagesCont">
+  <div class="cont cf">
+    <div id="tabs" class="cf">
+      <%= return_tabs %>
+    </div>
+    <div id="filterCont" class="cf">
+      <label for="filter">Filter Tags</label>
+      <input type="search" name="filter" id="filter" placeholder="e.g. Inspiration">
+    </div>
+  </div>
 
-<%= render 'messages' %>
+  <div class="cf" id="messages">
+    <%= render @messages %>
+  </div>
+</div>

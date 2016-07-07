@@ -62,6 +62,7 @@ class Media
     g_addEvent(Media.progress, 'click', @progressClick)
     g_addEvent(Media.vImg, 'click', @vMute)
     g_addEvent(Media.vSlide, 'click', @vSClick)
+#    g_addEvent(Media.container, '', @refindit)
     true
 
   playPause: () ->
@@ -140,8 +141,19 @@ class Media
       Media.vDrag.style.left = vol + "%"
       Media.mediaElem.volume = vol/100
 
+  refindit: () ->
+    if document.getElementById('video')
+      charles = new Media('video')
+      document.charles = charles
+      console.log "setting up video"
+    else if document.getElementById('audio')
+      charles = new Media('audio')
+      document.charles = charles
+      console.log "setting up audio"
+
 setIt = (type = 'video') ->
   charles = new Media(type)
+  document.charles = charles
 
 findIt = () ->
   if document.getElementById('video')

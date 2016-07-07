@@ -2,20 +2,32 @@ class MessagesController < ApplicationController
   before_action :get_message, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:type]
+    if params[:type] && params[:type] != ""
       @messages = Message.where("content_type = ?", params[:type])
     else
       @messages = Message.all
     end
 
-    if params[:tag]
+    if params[:tag] && params[:tag] != ""
       @messages = @messages.tagged_with(params[:tag])
+    end
+
+    respond_to do |format|
+      format.html { @message = Message.first }
+      format.js
     end
   end
 
   def show
-    @message = Message.last unless @message
-    @messages = Message.all
+    @message ||= Message.first
+
+    respond_to do |format|
+      format.html do
+        @messages = Message.all
+        render 'index'
+      end
+      format.js
+    end
   end
 
   def new

@@ -1,0 +1,8 @@
+<% if params[:append] %>
+  $('#messages').append("<%= j render @messages %>");
+<% else %>
+  $('#messages').html("<%= j render @messages %>");
+<% end %>
+
+$('#tabs').html("<%= j return_tabs %>");
+$('#filter').val("<%= params[:tag] %>");

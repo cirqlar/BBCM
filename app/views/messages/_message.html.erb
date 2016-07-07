@@ -1,9 +1,9 @@
 <div class="message">
-  <div class="poster" style="background-image: url(<%= message.poster.url %>)"></div>
+  <div class="poster" style="width: 100px; height: 100px; background-image: url(<%= message.poster.url %>)"></div>
   <div class="descCont">
-    <%= link_to message.title, show_message_path(:id => message), class: 'title'%>
+    <%= link_to message.title, show_message_path(:id => message), remote: true, class: 'title'%>
     <span class="date"><%= message.updated_at %></span>
     <span class="type"><%= message.content_type %></span>
   </div>
-  <%= link_to "delete", message, method: :delete, data: {confrim: "Are you sure?"} %>
+  <%= link_to "delete", message, method: :delete, data: {confirm: "Are you sure?"} %>
 </div>
