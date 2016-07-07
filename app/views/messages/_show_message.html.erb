@@ -1,6 +1,6 @@
 <div id="<%= @message.content_type %>Cont">
-  <div class="poster" id="poster" style="width: 100px; height: 100px;background-image: url(<%= @message.poster.url %>)"></div>
-  <div class="play" id="middleButton" style="display: none">
+  <div class="poster" id="poster" style="background-image: url(<%= @message.poster.url %>)"></div>
+  <div class="play" id="middleButton">
     <img src="/pause.svg" alt="pause" class="pause" />
     <img src="/play.svg" alt="play" class="play" />
   </div>
@@ -13,7 +13,7 @@
       <source src="<%= @message.media.url %>" type="<%= @message.media.content_type %>">
     </video>
   <% end %>
-  <div class="controls" style="display: none">
+  <div class="controls">
     <div id="progress">
       <div id="fill">
 

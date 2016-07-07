@@ -1,5 +1,5 @@
 <div class="image">
-  <%= image_tag image.image.url, alt: image.event if image.image? %>
+  <%= content_tag :div, "", style: "background-image: url(#{image.image.url})", class: "img" %>
   <div class="details">
     <span class="event"><%= image.event %></span>
     <span class="people"><%= image.people %></span>
