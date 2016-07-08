@@ -71,6 +71,7 @@ body {
           line-height: 20px;
           font-weight: 300;
           text-transform: uppercase;
+          font-size: 1em;
 
           &:hover {
             color: $color;
@@ -134,6 +135,123 @@ body {
   padding-top: 70px;
 }
 
+#flash {
+  width: 100%;
+  max-width: 800px;
+  margin: 0px auto 10px auto;
+
+  p {
+    font-size: 1em;
+    font-weight: 300;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+
+    &.success { background-color: $rtscolor; }
+    &.info { background-color: $rtswhite; }
+    &.danger { background-color: rgba(255, 0, 0, 0.5); }
+  }
+}
+
+form {
+  width: 800px;
+  padding: 10px;
+  margin: 0px auto 10px auto;
+  background-color: rgba(255,255,255,0.8);
+
+  > h3 {
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    margin: 0.5em 0px 0px 0px;
+    font-weight: 500;
+  }
+
+  > p {
+    text-align: center;
+    font-size: 1.1em;
+    margin: 0px auto 2em auto;
+    width: 300px;
+  }
+
+  #errors {
+    width: 100%;
+    max-width: 500px;
+    margin: 0px auto 10px auto;
+
+    h3 {
+      font-size: 1.3em;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    p {
+      font-size: 0.8em;
+      font-weight: 200;
+
+      &:last-child {
+        margin-bottom: 1.5em;
+      }
+    }
+  }
+
+  fieldset {
+    width: 500px;
+    margin: 0px auto 10px auto;
+    position: relative;
+    background-color: transparent;
+    border: 1px solid $color;
+    padding: 0;
+
+    label {
+      min-width: 20%;
+      position: absolute;
+      display: inline-block;
+      line-height: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      border-right: 1px solid $rrtscolor;
+      font-size: 1em;
+    }
+
+    input[type=text], input[type=email], input[type=password], textarea, input[type=file] {
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      text-align: right;
+      font-size: 0.8em;
+      border: none;
+      padding: 5px 10px 5px 25%;
+      outline: none;
+    }
+
+    input[type=file] { padding: 0px 10px 0px 25%; }
+
+    textarea {
+      height: 150px;
+    }
+  }
+
+  input[type=submit] {
+    display: block;
+    width: 500px;
+    height: 40px;
+    margin: 0px auto;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: $color;
+    border: 1px solid $color;
+    cursor: pointer;
+
+    &:hover, &:focus {
+      background-color: $color;
+      color: $white;
+    }
+  }
+}
+
 #footer {
   width: 100%;
   height: 70px;
@@ -178,6 +296,10 @@ body {
       }
     }
   }
+
+  form {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 499px) {
@@ -188,7 +310,6 @@ body {
       .nav {
         width: 115px;
         padding: 10px 10px;
-        font-size: 15px;
       }
 
       #left {
@@ -211,6 +332,25 @@ body {
           padding: 25px 10px;
         }
       }
+    }
+  }
+
+  form {
+    fieldset {
+      width: 98%;
+    }
+    input[type=submit] {
+      width: 98%;
+    }
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  form {
+    fieldset {
+      label { min-width: 30%; font-size: 0.8em; }
+      input[type=text], input[type=email], input[type=password], textarea { padding: 5px 5px 5px 30%; }
+      input[type=file] { padding: 0px 10px 0px 30%; }
     }
   }
 }

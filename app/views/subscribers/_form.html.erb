@@ -1,15 +1,23 @@
-Subscribe
-<div class="cf" id="sub_create">
-
-</div>
 <%= form_for @subscriber, remote: true do |f| %>
+  <h3>Get the latest info</h3>
+  <p>
+    Subscribe now to have announcements emailed to you once they are made
+  </p>
+  <div class="cf" id="sub_create">
+
+  </div>
+
   <%= render 'shared/errors', object: f.object %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name%>
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+  </fieldset>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <fieldset>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </fieldset>
 
   <%= f.submit 'Subscribe' %>
 <% end %>

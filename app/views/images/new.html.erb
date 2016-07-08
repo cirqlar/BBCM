@@ -1,3 +1,22 @@
-<h1>Images#new</h1>
+<%= form_for(@image, html: {multipart: true}) do |f| %>
+  <%= render 'shared/form_top' %>
 
-<%= render 'form' %>
+  <%= render 'shared/errors', object: f.object %>
+
+  <fieldset>
+    <%= f.label :event %>
+    <%= f.text_field :event %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :people %>
+    <%= f.text_field :people %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </fieldset>
+
+  <%= f.submit "Save Image" %>
+<% end %>

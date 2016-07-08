@@ -45,6 +45,7 @@ class MessagesController < ApplicationController
   end
 
   def edit
+    render 'new'
   end
 
   def update

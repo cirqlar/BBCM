@@ -23,6 +23,7 @@ class SlidesController < ApplicationController
   end
 
   def edit
+    render 'new'
   end
 
   def update
@@ -42,7 +43,7 @@ class SlidesController < ApplicationController
 
   private
     def slide_params
-      params.require(:slide).permit(:image, :title, :desc)
+      params.require(:slide).permit(:image, :title)
     end
 
     def get_slide

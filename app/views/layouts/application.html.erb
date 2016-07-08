@@ -9,7 +9,7 @@
   <body>
     <%= render 'layouts/header' %>
     <div id="bodyCont">
-      <div class="flash">
+      <div id="flash">
         <% flash.each do |type, msg| %>
           <p class="<%= type %>">
             <%= msg %>

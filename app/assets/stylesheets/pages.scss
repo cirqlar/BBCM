@@ -1,3 +1,177 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "partials/vars";
+
+#slideCont {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  margin: 0px auto 10px auto;
+  overflow: hidden;
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 5px 15px 15px 15px;
+      height: auto;
+      background-color: $tswhite;
+      text-align: justify;
+
+      h3 {
+        margin: 0;
+        display: inline-block;
+        font-size: 1.3em;
+        text-transform: uppercase;
+        font-weight: 300;
+        border-bottom: solid $color 3px;
+      }
+    }
+  }
+}
+
+.row {
+  width: 800px;
+  margin: 0px auto 10px auto;
+  height: 600px;
+
+  #ans {
+    float: left;
+    width: 390px;
+    height: 100%;
+    background-color: $tswhite;
+    padding: 20px;
+
+    hr {
+      margin: 0px 0px 10px 0px;
+      border-color: $rrtscolor;
+    }
+
+    .an {
+      margin-bottom: 10px;
+
+      h3 {
+        margin: 0;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 400;
+        line-height: 1.4em;
+      }
+
+      p {
+        margin: 0;
+        font-size: .85em;
+        text-align: justify;
+        font-weight: 300;
+      }
+
+      span {
+        font-size: 0.7em;
+        float: right;
+        font-weight: 100;
+      }
+    }
+  }
+  #bbcm {
+    position: relative;
+    float: right;
+    width: 390px;
+    height: 100%;
+    background-color: $tswhite;
+
+    div {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      h3 {
+        text-align: center;
+        width: 300px;
+        font-size: 2em;
+        margin: auto;
+        text-transform: uppercase;
+        color: $tscolor;
+        font-weight: 600;
+
+        span {
+          font-size: 0.5em;
+          text-transform: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  #slideCont {
+    width: 100%;
+    height: 62.5vw;
+  }
+
+  .row {
+    width: 100%;
+
+    #ans, #bbcm {
+      width: 48%;
+    }
+  }
+
+  #sub {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 689px) {
+  .row {
+    height: auto;
+
+    #ans {
+      width: 100%;
+      float: none;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    #bbcm {
+      width: 100%;
+      float: none;
+      height: 300px;
+    }
+  }
+}
+
+@media only screen and (max-width: 399px) {
+  .row {
+    #ans .an {
+      h3 {
+        font-size: 1em;
+      }
+      p {
+        font-size: 0.75;
+      }
+    }
+  }
+}
