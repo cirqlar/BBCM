@@ -5,12 +5,20 @@ class MessagesController < ApplicationController
   def index
     if params[:type] && params[:type] != ""
       @messages = Message.where("content_type = ?", params[:type])
-    else
-      @messages = Message.all
     end
 
     if params[:tag] && params[:tag] != ""
-      @messages = @messages.tagged_with(params[:tag])
+      if @messages
+        @messages = @messages.tagged_with(params[:tag])
+      else
+        @messages = Message.tagged_with(params[:tag])
+      end
+    end
+
+    if @messages
+      @messages = @messages.paginate(page: params[:page], per_page: 20)
+    else
+      @messages = Message.paginate(page: params[:page], per_page: 20)
     end
 
     respond_to do |format|

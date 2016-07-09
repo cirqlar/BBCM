@@ -1,8 +1,15 @@
-<% if params[:append] %>
+<% if params[:page] %>
   $('#messages').append("<%= j render @messages %>");
 <% else %>
   $('#messages').html("<%= j render @messages %>");
 <% end %>
 
 $('#tabs').html("<%= j return_tabs %>");
-$('#filter').val("<%= params[:tag] %>");
+$('#filterCont').replaceWith("<%= j render 'tags' %>");
+
+<% if @messages.next_page %>
+  $('#scrolling').html("<%= j will_paginate @messages, params: {type: params[:type], tag: params[:tag]} %>")
+<% else %>
+  $(window).off('scroll');
+  $('#scrolling').html("<span>No more content</span>");
+<% end %>

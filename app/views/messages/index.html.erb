@@ -6,13 +6,14 @@
     <div id="tabs" class="cf">
       <%= return_tabs %>
     </div>
-    <div id="filterCont" class="cf">
-      <label for="filter">Filter Tags</label>
-      <input type="search" name="filter" id="filter" placeholder="e.g. Inspiration">
-    </div>
+
+    <%= render 'tags' %>
   </div>
 
   <div class="cf" id="messages">
     <%= render @messages %>
+  </div>
+  <div id="scrolling">
+    <%= will_paginate @messages, params: {type: params[:type], tag: params[:tag]} %>
   </div>
 </div>
