@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :messages, except: [:show]
   get 'message' => 'messages#show', as: :show_message
 
-  resources :slides
+  resources :slides, except: [:show]
   resources :announcements, :path => 'ans'
   resources :subscribers, only: [:create]
   get 'subs/:id' => 'subscribers#destroy', as: :subs_destroy

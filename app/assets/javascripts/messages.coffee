@@ -145,11 +145,9 @@ class Media
     if document.getElementById('video')
       charles = new Media('video')
       document.charles = charles
-      console.log "setting up video"
     else if document.getElementById('audio')
       charles = new Media('audio')
       document.charles = charles
-      console.log "setting up audio"
 
 setIt = (type = 'video') ->
   charles = new Media(type)
@@ -158,10 +156,8 @@ setIt = (type = 'video') ->
 findIt = () ->
   if document.getElementById('video')
     setIt('video')
-    console.log "setting up video"
   else if document.getElementById('audio')
     setIt('audio')
-    console.log "setting up audio"
 
-$(document).ready ->
-  findIt();
+$(document).on "turbolinks:load", ->
+  findIt()

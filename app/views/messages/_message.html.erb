@@ -1,9 +1,9 @@
-<div class="message">
-  <div class="poster" style="background-image: url(<%= message.poster.url %>)"></div>
+<a href="<%= show_message_path(:id => message) %>" class="message" data-remote="true">
+  <div class="poster" style="background-image: url(<%= message.poster.thumb.url %>)"></div>
+  <img src="/img/<%= message.content_type %>.svg" alt="<%= message.content_type %>" class="type" />
   <div class="descCont">
-    <%= link_to message.title, show_message_path(:id => message), remote: true, class: 'title'%>
-    <span class="date"><%= message.updated_at %></span>
-    <span class="type"><%= message.content_type %></span>
+    <h3><%= message.title %></h3>
+    <span class="date"><%= message.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
   </div>
-  <%= link_to "delete", message, method: :delete, data: {confirm: "Are you sure?"} %>
-</div>
+  <%= link_to "delete", message, method: :delete, data: {confirm: "Are you sure?"} if false %>
+</a>

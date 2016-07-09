@@ -2,7 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $('#modal').click (e) ->
-    if e.target.id == 'modal'
-      $('#modal').removeClass('open')
+$(document).on "turbolinks:load", ->
+  if document.getElementById("modal")
+    $('#modal').click (e) ->
+      if e.target.id == 'modal'
+        $('#modal').removeClass('open')

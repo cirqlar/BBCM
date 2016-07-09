@@ -19,7 +19,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Athiti";
+  font-family: "Athiti", sans-serif;
   transition: 0.3s;
 }
 
@@ -36,7 +36,7 @@ body {
   padding: 0;
   font-size: 100%;
   border: 0;
-  background-image: url(/pattern.png);
+  background-image: url(/img/pattern.png);
   background-repeat: repeat;
 }
 
@@ -163,17 +163,30 @@ form {
 
   > h3 {
     text-align: center;
+    width: 100%;
+    max-width: 400px;
     font-size: 2em;
     text-transform: uppercase;
-    margin: 0.5em 0px 0px 0px;
-    font-weight: 500;
+    margin: 0.5em auto 0px auto;
+    font-weight: 400;
   }
 
   > p {
     text-align: center;
+    width: 100%;
+    max-width: 500px;
     font-size: 1.1em;
     margin: 0px auto 2em auto;
-    width: 300px;
+  }
+
+  #create {
+    width: 100%;
+    max-width: 500px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0px auto 10px auto;
+    border: 1px solid $color;
+    display: none;
   }
 
   #errors {
@@ -204,33 +217,58 @@ form {
     background-color: transparent;
     border: 1px solid $color;
     padding: 0;
+    font-size: 0px;
 
     label {
       min-width: 20%;
       position: absolute;
+      left: 0;
+      top: 0;
       display: inline-block;
       line-height: 40px;
       text-align: center;
       text-transform: uppercase;
       border-right: 1px solid $rrtscolor;
-      font-size: 1em;
+      font-size: 1rem;
     }
 
     input[type=text], input[type=email], input[type=password], textarea, input[type=file] {
       width: 100%;
       height: 40px;
       background: transparent;
-      text-align: right;
-      font-size: 0.8em;
+      text-align: left;
+      font-size: 0.8rem;
       border: none;
       padding: 5px 10px 5px 25%;
       outline: none;
+    }
+
+    select {
+      height: 40px;
+      background-color: transparent;
+      width: 16%;
+      float: left;
+      border: none;
+      outline: #38c300;
+      border-right: 1px solid rgba(56,195,0,0.3);
+
+      &:nth-child(2) {
+        margin-left: 20%;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
     }
 
     input[type=file] { padding: 0px 10px 0px 25%; }
 
     textarea {
       height: 150px;
+      margin-top: 40px;
+      padding: 5px 10px;
+      border-top: 1px solid $rrtscolor;
+      resize: none;
     }
   }
 
@@ -348,9 +386,10 @@ form {
 @media only screen and (max-width: 499px) {
   form {
     fieldset {
-      label { min-width: 30%; font-size: 0.8em; }
-      input[type=text], input[type=email], input[type=password], textarea { padding: 5px 5px 5px 30%; }
+      label { min-width: 30%; font-size: 0.8rem; }
+      input[type=text], input[type=email], input[type=password] { padding: 5px 5px 5px 35%; }
       input[type=file] { padding: 0px 10px 0px 30%; }
+      select { width: 14%;}
     }
   }
 }

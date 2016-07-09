@@ -1,8 +1,8 @@
 <div id="<%= @message.content_type %>Cont">
   <div class="poster" id="poster" style="background-image: url(<%= @message.poster.url %>)"></div>
   <div class="play" id="middleButton">
-    <img src="/pause.svg" alt="pause" class="pause" />
-    <img src="/play.svg" alt="play" class="play" />
+    <img src="/img/pause.svg" alt="pause" class="pause" />
+    <img src="/img/play.svg" alt="play" class="play" />
   </div>
   <% if @message.content_type == 'audio' %>
     <audio id="audio">
@@ -23,19 +23,19 @@
       </div>
     </div>
     <div id="controlButton" class="play">
-      <img src="/pause.svg" alt="pause" class="pause" />
-      <img src="/play.svg" alt="play" class="play" />
+      <img src="/img/pause.svg" alt="pause" class="pause" />
+      <img src="/img/play.svg" alt="play" class="play" />
     </div>
     <div id="timeCont">
       <span id="time">0:00</span> / <span id="duration">0:00</span>
     </div>
     <div id="volume">
-      <div id="vimg"><img src="/volume.svg" alt="full" class="full" /></div>
+      <div id="vimg"><img src="/img/volume.svg" alt="full" class="full" /></div>
       <div id="vcont"><div id="vslide"><div id="vdrag"></div></div></div>
     </div>
     <div id="screen" class="norm">
-      <img src="/fulls.svg" alt="full" class="full" />
-      <img src="/norms.svg" alt="norm" class="norm" />
+      <img src="/img/fulls.svg" alt="full" class="full" />
+      <img src="/img/norms.svg" alt="norm" class="norm" />
     </div>
   </div>
 </div>
@@ -43,5 +43,5 @@
   <h3 class="title"><%= @message.title %></h3>
   <p class="desc"><%= @message.description %></p>
   <span class="tags">Tags: <%= raw tag_links @message.tag_list %></a></span>
-  <span class="date"><%= @message.updated_at %></span>
+  <span class="date"><%= @message.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
 </div>

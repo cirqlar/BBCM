@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def index
-    @slides = Slide.all
-    @ans = Announcement.all
+    @slides = Slide.all.take(5)
+    @ans = Announcement.all.take(5)
     @subscriber = Subscriber.new
   end
 

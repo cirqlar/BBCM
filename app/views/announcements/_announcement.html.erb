@@ -1,8 +1,12 @@
-<div class="an">
+<div class="an cf">
   <% an ||= announcement %>
-  <h3><%= an.title %></h3>
+  <%= link_to an.title, an  if params[:action] != 'show' %>
+  <%= content_tag :h3, an.title  if params[:action] == 'show' %>
   <p>
-    <%= params[:action] == 'show' ? an.desc : truncate(an.desc, length: 30) %>
+    <%= params[:controller] == 'announcements' ? truncate(an.desc, length: 300) : truncate(an.desc, length: 110) if params[:action] != 'show' %>
+    <%= simple_format an.desc if params[:action] == 'show' %>
   </p>
-  <span><%= an.expires_at %></span>
+  <%= link_to "Back", announcements_path  if params[:action] == 'show' %>
+  <span>Lasts till: <%= an.expires_at.strftime("%H:%M %A, %d %B %Y") %></span>
 </div>
+<%= raw "<hr>" if params[:action] != 'show' %>

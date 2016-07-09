@@ -3,7 +3,7 @@
   <div class="details">
     <span class="event"><%= image.event %></span>
     <span class="people"><%= image.people %></span>
-    <span class="date"><%= image.updated_at %></span>
+    <span class="date"><%= image.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
   </div>
-  <%= link_to "delete", image, method: :delete, data: {confrim: "Are you sure?"} %>
 </div>
+<%= link_to "delete", image, method: :delete, data: {confirm: "Are you sure?"} %>

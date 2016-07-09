@@ -1,11 +1,8 @@
 class SlidesController < ApplicationController
-  before_action :get_slide, only: [:show, :edit, :update, :destroy]
+  before_action :get_slide, only: [:edit, :update, :destroy]
 
   def index
     @slides = Slide.all
-  end
-
-  def show
   end
 
   def new
