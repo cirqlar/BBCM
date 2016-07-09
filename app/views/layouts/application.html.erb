@@ -19,6 +19,8 @@
         <% end %>
       </div>
 
+      <%= content_tag :div, render('layouts/topBar'), id: "topBar" if logged_in? %>
+
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>

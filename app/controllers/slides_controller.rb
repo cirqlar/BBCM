@@ -1,4 +1,5 @@
 class SlidesController < ApplicationController
+  before_action :logged_in_admin
   before_action :get_slide, only: [:edit, :update, :destroy]
 
   def index

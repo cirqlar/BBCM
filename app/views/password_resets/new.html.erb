@@ -1,0 +1,10 @@
+<%= form_for(:password_reset, url: password_resets_path) do |f| %>
+  <%= render "shared/form_top" %>
+
+  <fieldset>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </fieldset>
+
+  <%= f.submit "Send Reset Email" %>
+<% end %>

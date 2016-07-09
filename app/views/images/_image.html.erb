@@ -6,4 +6,4 @@
     <span class="date"><%= image.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
   </div>
 </div>
-<%= link_to "delete", image, method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Delete", image, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? %>

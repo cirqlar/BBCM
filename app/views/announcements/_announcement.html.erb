@@ -7,6 +7,7 @@
     <%= simple_format an.desc if params[:action] == 'show' %>
   </p>
   <%= link_to "Back", announcements_path  if params[:action] == 'show' %>
+  <%= link_to "Delete", an, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? %>
   <span>Lasts till: <%= an.expires_at.strftime("%H:%M %A, %d %B %Y") %></span>
 </div>
 <%= raw "<hr>" if params[:action] != 'show' %>

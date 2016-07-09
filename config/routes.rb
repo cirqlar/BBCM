@@ -15,6 +15,13 @@ Rails.application.routes.draw do
   resources :subscribers, only: [:create]
   get 'subs/:id' => 'subscribers#destroy', as: :subs_destroy
 
+  resources :admins, except: [:show]
+  get 'hashmin/login' => 'sessions#new', as: :login
+  post 'hashmin/login' => 'sessions#create'
+  get 'hashmin/logout' => 'sessions#destroy', as: :logout
+
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

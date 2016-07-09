@@ -1,4 +1,5 @@
 class AnnouncementsController < ApplicationController
+  before_action :logged_in_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :get_an, only: [:show, :edit, :update, :destroy]
 
   def index

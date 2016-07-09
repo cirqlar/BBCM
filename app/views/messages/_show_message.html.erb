@@ -43,5 +43,6 @@
   <h3 class="title"><%= @message.title %></h3>
   <p class="desc"><%= @message.description %></p>
   <span class="tags">Tags: <%= raw tag_links @message.tag_list %></a></span>
+  <%= link_to "Delete", @message, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? %>
   <span class="date"><%= @message.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
 </div>
