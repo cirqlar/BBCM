@@ -31,4 +31,8 @@ module SessionsHelper
       redirect_to root_path
     end
   end
+
+  def correct_admin?(admin)
+    admin == current_admin || admin.ancestor_ids.include?(session[:admin_id])
+  end
 end

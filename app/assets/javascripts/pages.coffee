@@ -8,9 +8,8 @@ slides = document.getElementsByClassName('slide')
 shows = document.getElementsByClassName('show')
 
 $(document).on "turbolinks:load", ->
-  if document.getElementById("sub")
-    window.setInterval(slider, 10000)
-    window.setInterval(shower, 10000)
+  window.setInterval(slider, 10000)
+  window.setInterval(shower, 10000)
 
 slider = ()->
   if 0 > nextSlide || nextSlide >= slides.length

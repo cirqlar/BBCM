@@ -1,7 +1,8 @@
-<div class="slide">
+<div class="<%= params[:controller] == "pages" ? "slide" : "sld"   %>">
   <div class="img" style="background-image: url(<%= slide.image.url %>)"></div>
   <div class="text">
     <h3 class="title"><%= slide.title %></h3>
-    <%= link_to "Delete", slide, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? %>
+    <%= link_to "Edit", edit_slide_path(slide), class: "delete" if logged_in? && params[:controller] == 'slides' %>
+    <%= link_to "Delete", slide, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? && params[:controller] == 'slides' %>
   </div>
 </div>
