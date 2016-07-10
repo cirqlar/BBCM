@@ -3,7 +3,7 @@ $(document).on "turbolinks:load", ->
     $(window).on 'scroll', ->
       next_url = $('.pagination a.next_page').attr('href')
       if next_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60
-        $('.pagination').html('<div id="loading"></div>')
+        $('#scrolling').html('<div id="preScroll"><img src="/img/loader.gif" alt="prescroll" /></div>')
         $.getScript next_url
         return
       return

@@ -16,6 +16,14 @@ class Announcement < ActiveRecord::Base
       end
     end
 
+    def expired?
+      if self.expires_at < DateTime.now
+        true
+      else
+        false
+      end
+    end
+
     def announce
       Subscriber.all.each do |suber|
         AnnouncementsMailer.announce(suber, self).deliver
