@@ -1,6 +1,6 @@
 class Announcement < ActiveRecord::Base
   validates :title, presence: true, length: {maximum: 50}
-  validates :desc, presence: true, length: {maximum: 1500}
+  validates :desc, presence: true
   validates :expires_at, presence: true
   validate :validate_expires_at
 

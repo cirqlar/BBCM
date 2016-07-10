@@ -14,7 +14,7 @@ class SlidesController < ApplicationController
     @slide = Slide.new(slide_params)
     if @slide.save
       flash[:success] = "Slide successfully created"
-      redirect_to @slide
+      redirect_to slides_path
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class SlidesController < ApplicationController
   def update
     if @slide.update_attributes(slide_params)
       flash[:success] = "Slide successfully updated"
-      redirect_to @slide
+      redirect_to slides_path
     else
       render 'edit'
     end

@@ -16,9 +16,9 @@ class MessagesController < ApplicationController
     end
 
     if @messages
-      @messages = @messages.paginate(page: params[:page], per_page: 20)
+      @messages = @messages.paginate(page: params[:page], per_page: 10)
     else
-      @messages = Message.paginate(page: params[:page], per_page: 20)
+      @messages = Message.paginate(page: params[:page], per_page: 10)
     end
 
     respond_to do |format|
@@ -32,7 +32,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       format.html do
-        @messages = Message.all
+        @messages = Message.paginate(page: params[:page], per_page: 10)
         render 'index'
       end
       format.js

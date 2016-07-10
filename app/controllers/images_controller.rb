@@ -3,7 +3,7 @@ class ImagesController < ApplicationController
   before_action :get_image, only: [:show, :edit, :update, :destroy]
 
   def index
-    @images = Image.paginate(page: params[:page], per_page: 20)
+    @images = Image.paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
       format.html
