@@ -9,6 +9,7 @@ $('#filterCont').replaceWith("<%= j render 'tags' %>");
 
 <% if @messages.next_page %>
   $('#scrolling').html("<%= j will_paginate @messages, params: {controller: 'messages', action: 'index', type: params[:type], tag: params[:tag]} %>")
+  $('.pagination').hide()
 <% else %>
   $(window).off('scroll');
   $('#scrolling').html("<span>No more content</span>");

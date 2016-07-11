@@ -1,4 +1,5 @@
 $(document).on "turbolinks:load", ->
+  $('.pagination').hide()
   if $('#scrolling').size() > 0
     $(window).on 'scroll', ->
       next_url = $('.pagination a.next_page').attr('href')

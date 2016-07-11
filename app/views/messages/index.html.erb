@@ -13,7 +13,7 @@
   <div class="cf" id="messages">
     <%= render @messages %>
   </div>
-  <div id="scrolling">
-    <%= will_paginate @messages, params: {controller: 'messages', action: 'index', type: params[:type], tag: params[:tag]} %>
-  </div>
+</div>
+<div id="scrolling">
+  <%= will_paginate @messages, params: {controller: 'messages', action: 'index', type: params[:type], tag: params[:tag]} %>
 </div>
