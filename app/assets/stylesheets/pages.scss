@@ -250,7 +250,7 @@
   .row {
     width: 100%;
 
-    #ans, #bbcm {
+    #ans, #bbcm, #vision, #motto {
       width: 48%;
     }
   }
@@ -271,10 +271,11 @@
       margin-bottom: 10px;
     }
 
-    #bbcm {
+    #bbcm, #vision, #motto {
       width: 100%;
       float: none;
-      height: 300px;
+      height: 350px;
+      margin-bottom: 10px;
     }
   }
 }

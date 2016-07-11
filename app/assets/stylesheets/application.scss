@@ -112,9 +112,11 @@ body {
     #center {
       width: 70px;
       padding: 10px;
+      overflow: hidden;
 
       img {
         height: 100%;
+        width: 100%;
       }
     }
 
@@ -255,6 +257,7 @@ body {
 
 form {
   width: 800px;
+  max-width: 100%;
   padding: 10px;
   margin: 0px auto 10px auto;
   background-color: rgba(255,255,255,0.8);
@@ -324,6 +327,7 @@ form {
 
   fieldset {
     width: 500px;
+    max-width: 98%;
     margin: 0px auto 10px auto;
     position: relative;
     background-color: transparent;
@@ -387,6 +391,7 @@ form {
   input[type=submit] {
     display: block;
     width: 500px;
+    max-width: 98%;
     height: 40px;
     margin: 0px auto;
     text-transform: uppercase;
@@ -415,6 +420,9 @@ form {
 }
 
 @media only screen and (max-width: 799px) {
+  #loading {
+    background-size: 100px 100px;
+  }
   #header {
     .cont {
       width: 500px;
@@ -445,10 +453,6 @@ form {
         }
       }
     }
-  }
-
-  form {
-    width: 100%;
   }
 }
 
