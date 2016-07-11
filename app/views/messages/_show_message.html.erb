@@ -41,6 +41,15 @@
     </div>
   </div>
 <% end %>
+<% if @message.content_type == 'video' %>
+  <video width="800" height="500" src="<%= @message.media.url %>" type="<%= @message.media.content_type %>" id="player1" poster="<%= @message.poster.url %>" controls="controls" preload="none">
+
+  </video>
+<% else %>
+  <audio id="player2" src="<%= @message.media.url %>" type="<%= @message.media.content_type %>" controls="controls">
+
+  </audio>
+<% end %>
 <div id="descCont">
   <h3 class="title"><%= @message.title %></h3>
   <p class="desc"><%= @message.description %></p>
