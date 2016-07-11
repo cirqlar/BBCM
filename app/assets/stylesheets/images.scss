@@ -84,6 +84,25 @@
       }
   }
 
+  #close {
+    position: absolute;
+    bottom: 0;
+    z-index: 1909;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+
+    &:hover, &:focus {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .image {
     position: absolute;
     width: 800px;
@@ -92,24 +111,6 @@
     left: 50%;
     margin: -300px 0 0 -400px;
     background-color: $tscolor;
-
-    #close {
-      position: absolute;
-      bottom: 50px;
-      right: 0;
-      width: 60px;
-      height: 60px;
-      padding: 10px;
-
-      &:hover, &:focus {
-        transform: scale(1.1);
-      }
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
 
     .img {
       width: 100%;
@@ -124,6 +125,7 @@
       width: 100%;
       height: 100px;
       line-height: normal;
+      overflow-y: auto;
       background-color: $tswhite;
       text-align: left;
 

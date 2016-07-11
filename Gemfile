@@ -38,6 +38,7 @@ gem 'fog'
 gem 'acts-as-taggable-on'
 gem 'ancestry'
 gem 'will_paginate'
+gem 'rails-assets-mediaelement', source: 'https://rails-assets.org'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
