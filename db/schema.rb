@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709133722) do
+ActiveRecord::Schema.define(version: 20160713010144) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(version: 20160709133722) do
   create_table "images", force: :cascade do |t|
     t.string   "event"
     t.string   "people"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "image"
+    t.boolean  "image_processing", default: false, null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160709133722) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "content_type"
+    t.string   "media_tmp"
   end
 
   create_table "slides", force: :cascade do |t|

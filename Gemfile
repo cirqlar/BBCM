@@ -39,6 +39,12 @@ gem 'acts-as-taggable-on'
 gem 'ancestry'
 gem 'will_paginate'
 gem 'rails-assets-mediaelement', source: 'https://rails-assets.org'
+gem 'puma'
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'carrierwave_backgrounder'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

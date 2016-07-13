@@ -2,7 +2,9 @@ class Message < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
 
   mount_uploader :poster, ImageUploader
+  process_in_background :poster
   mount_uploader :media, MediaUploader
+  store_in_background :media
   acts_as_taggable
   validates :title, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 500 }
