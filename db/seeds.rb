@@ -9,3 +9,8 @@
 Admin.create!(name: "Ayanfe", email: "ayanfe@naude.com", password: "123#456_", password_confirmation: "123#456_")
 Admin.create!(name: "Tolu", email: "tolu@naude.com", password: "123#456_", password_confirmation: "123#456_")
 Admin.create!(name: "Ugo", email: "ugo@naude.com", password: "123#456_", password_confirmation: "123#456_")
+
+
+100.times do |x|
+  Subscriber.create!(name: "jamey", email: "what#{x}@yahoo.com")
+end

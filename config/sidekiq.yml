@@ -1,0 +1,11 @@
+---
+:concurrency: 2
+staging:
+  :concurrency: 10
+production:
+  :concurrency: 25
+:queues:
+  - default
+  - [mailers, 2]
+  - [deleters, 1]
+  - [carrierwave, 5]

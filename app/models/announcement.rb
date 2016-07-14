@@ -1,23 +1,24 @@
 class Announcement < ActiveRecord::Base
+  default_scope -> { order(expires_at: :asc) }
+
   validates :title, presence: true, length: {maximum: 50}
   validates :desc, presence: true
   validates :expires_at, presence: true
-  validate :validate_expires_at
+  #validate :validate_expires_at
 
   after_save :announce
 
   private
     def validate_expires_at
       if expires_at.present?
-        hours = (expires_at.to_time - 24.hours).to_datetime
-        if hours < DateTime.now
-          errors.add(:expires_at, "must be at least 24 hours from now")
+        if expires_at < Date.tomorrow
+          errors.add(:expires_at, "must be at least 1 day from now")
         end
       end
     end
 
     def expired?
-      if self.expires_at < DateTime.now
+      if self.expires_at < Date.today
         true
       else
         false
@@ -25,8 +26,6 @@ class Announcement < ActiveRecord::Base
     end
 
     def announce
-      Subscriber.all.each do |suber|
-        AnnouncementsMailer.announce(suber, self).deliver
-      end
+      AnnounceJob.perform_later self
     end
 end
