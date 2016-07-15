@@ -51,7 +51,7 @@
   </audio>
 <% end %>
 <div id="descCont">
-  <h3 class="title"><%= @message.title %></h3>
+  <h3 class="title"><%= @message.title %>><%= @message.media_processing %></h3>
   <p class="desc"><%= @message.description %></p>
   <span class="tags">Tags: <%= raw tag_links @message.tag_list %></a></span>
   <%= link_to "Edit", edit_message_path(@message), class: "delete" if logged_in? %>

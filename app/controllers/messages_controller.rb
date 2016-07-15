@@ -3,23 +3,17 @@ class MessagesController < ApplicationController
   before_action :get_message, only: [:show, :edit, :update, :destroy]
 
   def index
+    @messages.where("media_processing = ?", false)
+
     if params[:type] && params[:type] != ""
-      @messages = Message.where("content_type = ?", params[:type])
+      @messages = @messages.where("content_type = ?", params[:type])
     end
 
     if params[:tag] && params[:tag] != ""
-      if @messages
-        @messages = @messages.tagged_with(params[:tag])
-      else
-        @messages = Message.tagged_with(params[:tag])
-      end
+      @messages = @messages.tagged_with(params[:tag])
     end
 
-    if @messages
-      @messages = @messages.paginate(page: params[:page], per_page: 10)
-    else
-      @messages = Message.paginate(page: params[:page], per_page: 10)
-    end
+    @messages = @messages.paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
       format.html { @message = Message.first }
@@ -28,7 +22,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message ||= Message.first
+    @message ||= Message.where("media_processing = ?", false).first
 
     respond_to do |format|
       format.html do

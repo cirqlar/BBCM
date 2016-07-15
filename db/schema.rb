@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713224659) do
+ActiveRecord::Schema.define(version: 20160715013408) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -48,10 +48,11 @@ ActiveRecord::Schema.define(version: 20160713224659) do
     t.string   "title"
     t.text     "description"
     t.string   "poster"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "content_type"
     t.string   "media_tmp"
+    t.boolean  "media_processing", default: false, null: false
   end
 
   create_table "slides", force: :cascade do |t|

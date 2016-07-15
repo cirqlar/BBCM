@@ -2,14 +2,30 @@
 
 class MediaUploader < CarrierWave::Uploader::Base
   include ::CarrierWave::Backgrounder::Delay
+  include ::CarrierWave::FFMPEG
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
+  version :mp4, :if => :video? do
+    process encode_video: [:mp4]
+  end
+
+  version :webm, :if => :video? do
+    process encode_video: [:webm]
+  end
+
+  version :ogv, :if => :video? do
+    process encode_video: [:ogv]
+  end
+
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -53,4 +69,8 @@ class MediaUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  protected
+    def video?(new_file)
+      return true if model.content_type == 'video'
+    end
 end
