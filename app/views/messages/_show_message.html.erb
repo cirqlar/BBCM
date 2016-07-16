@@ -1,57 +1,34 @@
-<% if false %>
-  <div id="<%= @message.content_type %>Cont">
-    <div class="poster" id="poster" style="background-image: url(<%= @message.poster.url %>)"></div>
-    <div class="play" id="middleButton">
-      <img src="/img/pause.svg" alt="pause" class="pause" />
-      <img src="/img/play.svg" alt="play" class="play" />
-    </div>
-    <% if @message.content_type == 'audio' %>
-      <audio id="audio">
-        <source src="<%= @message.media.url %>" type="<%= @message.media.content_type %>">
-      </audio>
-    <% else %>
-      <video id="video">
-        <source src="<%= @message.media.url %>" type="<%= @message.media.content_type %>">
-      </video>
-    <% end %>
-    <div class="controls">
-      <div id="progress">
-        <div id="fill">
-
-        </div>
-        <div id="drag">
-
-        </div>
-      </div>
-      <div id="controlButton" class="play">
-        <img src="/img/pause.svg" alt="pause" class="pause" />
-        <img src="/img/play.svg" alt="play" class="play" />
-      </div>
-      <div id="timeCont">
-        <span id="time">0:00</span> / <span id="duration">0:00</span>
-      </div>
-      <div id="volume">
-        <div id="vimg"><img src="/img/volume.svg" alt="full" class="full" /></div>
-        <div id="vcont"><div id="vslide"><div id="vdrag"></div></div></div>
-      </div>
-      <div id="screen" class="norm">
-        <img src="/img/fulls.svg" alt="full" class="full" />
-        <img src="/img/norms.svg" alt="norm" class="norm" />
-      </div>
-    </div>
-  </div>
-<% end %>
-<% if @message.content_type == 'video' %>
-  <video width="800" height="500" src="<%= @message.media.url %>" type="<%= @message.media.content_type %>" id="player1" poster="<%= @message.poster.url %>" controls="controls" preload="none">
-
-  </video>
+<% if @message.media_processing %>
+  <div class="processing" style="background-image: url(/img/logo.png)"></div>
 <% else %>
-  <audio id="player2" src="<%= @message.media.url %>" type="<%= @message.media.content_type %>" controls="controls">
-
-  </audio>
+  <% if @message.content_type == 'video' %>
+    <video width="800" height="500" poster="<%= @message.poster.url %>" controls="controls" preload="none">
+      <source src="<%= @message.media.url %>" type="<%= @message.media.content_type %>" />
+      <source src="<%= @message.media.url(:webm) %>" type="video/webm" />
+      <source src="<%= @message.media.url(:ogv) %>" type="video/ogg" />
+      <!-- Flash fallback for non-HTML5 browsers without JavaScript -->
+      <object width="800" height="500" type="application/x-shockwave-flash" data="/img/flashmediaelement.swf">
+        <param name="movie" value="/img/flashmediaelement.swf" />
+        <param name="flashvars" value="controls=true&file=<%= @message.media.mp4.url %>" />
+        <img src="<%= @message.poster.url %>" width="800" height="500" title="No video playback capabilities" />
+      </object>
+    </video>
+  <% else %>
+    <audio id="player2" controls="controls">
+      <source src="<%= @message.media.url %>" type="audio/mpeg">
+      <source src="<%= @message.media.url(:wav) %>"  type="audio/wav">
+    </audio>
+    <script type="text/javascript">
+      var audio = document.getElementById('player2');
+      var changeer = function () {
+        audio.removeAttribute('src');
+      }
+      window.setTimeout(changeer, 1000);
+    </script>
+  <% end %>
 <% end %>
 <div id="descCont">
-  <h3 class="title"><%= @message.title %>><%= @message.media_processing %></h3>
+  <h3 class="title"><%= @message.title %></h3>
   <p class="desc"><%= @message.description %></p>
   <span class="tags">Tags: <%= raw tag_links @message.tag_list %></a></span>
   <%= link_to "Edit", edit_message_path(@message), class: "delete" if logged_in? %>

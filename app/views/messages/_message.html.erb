@@ -1,5 +1,9 @@
 <a href="<%= show_message_path(:id => message) %>" class="message" data-remote="true">
-  <div class="poster" style="background-image: url(<%= message.poster.thumb.url %>)"></div>
+  <% if !message.media_processing %>
+    <div class="poster" style="background-image: url(<%= message.poster.thumb.url %>)"></div>
+  <% else %>
+    <div class="poster" style="background-image: url(/img/logo.png)"></div>
+  <% end %>
   <img src="/img/<%= message.content_type %>.svg" alt="<%= message.content_type %>" class="type" />
   <div class="descCont">
     <h3><%= message.title %></h3>

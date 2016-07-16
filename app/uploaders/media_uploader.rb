@@ -8,9 +8,8 @@ class MediaUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
-  version :mp4, :if => :video? do
-    process encode_video: [:mp4]
-  end
+  process encode_video: [:mp4], :if => :video?
+  process encode_audio: [:mp3], :if => :audio?
 
   version :webm, :if => :video? do
     process encode_video: [:webm]
@@ -18,6 +17,10 @@ class MediaUploader < CarrierWave::Uploader::Base
 
   version :ogv, :if => :video? do
     process encode_video: [:ogv]
+  end
+
+  version :wav, :if => :audio? do
+    process encode_audio: [:wav]
   end
 
   # Choose what kind of storage to use for this uploader:
@@ -70,7 +73,11 @@ class MediaUploader < CarrierWave::Uploader::Base
   # end
 
   protected
-    def video?(new_file)
+    def video?(new_file = "")
       return true if model.content_type == 'video'
+    end
+
+    def audio?(new_file = "")
+      return true if model.content_type != 'video'
     end
 end

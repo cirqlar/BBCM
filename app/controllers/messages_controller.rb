@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   before_action :get_message, only: [:show, :edit, :update, :destroy]
 
   def index
-    @messages.where("media_processing = ?", false)
+    @messages = Message.all
 
     if params[:type] && params[:type] != ""
       @messages = @messages.where("content_type = ?", params[:type])
@@ -16,13 +16,13 @@ class MessagesController < ApplicationController
     @messages = @messages.paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
-      format.html { @message = Message.first }
+      format.html { @message = Message.where("media_processing = ?", false).first }
       format.js
     end
   end
 
   def show
-    @message ||= Message.where("media_processing = ?", false).first
+    @message = Message.find(params[:id])
 
     respond_to do |format|
       format.html do
