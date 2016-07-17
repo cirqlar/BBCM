@@ -24,7 +24,7 @@ module CarrierWave
       if file.valid? # true (would be false if ffmpeg fails to read the movie)
         file.transcode(encoded_file, options) { |progress| puts "#{(progress * 100).round(2)} %" }
       else
-        model.model.error!
+        model.model.destroy
       end
       File.delete(tmpfile)
 
@@ -48,7 +48,7 @@ module CarrierWave
       if file.valid? # true (would be false if ffmpeg fails to read the movie)
         file.transcode(encoded_file) { |progress| puts "#{(progress * 100).round(2)} %" }
       else
-        model.model.error!
+        model.model.destroy
         puts "error"
       end
       File.delete(tmpfile)

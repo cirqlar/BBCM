@@ -241,6 +241,81 @@
   }
 }
 
+#address {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  margin: 0 auto 10px auto;
+  background-color: $tswhite;
+  background-image: url(/img/church.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  h3 {
+    text-align: center;
+    width: 90%;
+    font-size: 2em;
+    margin: auto;
+    text-transform: uppercase;
+    color: $tscolor;
+    font-weight: 400;
+
+    span {
+      font-size: 0.5em;
+      text-transform: none;
+      font-weight: 300;
+    }
+  }
+}
+
+#socialsCont {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+  background-color: $tswhite;
+
+  h3 {
+    text-align: center;
+    width: 90%;
+    font-size: 2em;
+    margin: auto;
+    text-transform: uppercase;
+    color: $tscolor;
+    font-weight: 400;
+  }
+
+  #socials {
+    width: 100%;
+    padding: 25px 10px;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      width: 120px;
+      color: $black;
+      text-decoration: none;
+      margin: 0 10px;
+
+      .social {
+        display: block;
+        margin: auto;
+        width: 70px;
+        height: 70px;
+      }
+
+      span {
+        display: block;
+        text-align: center;
+        font-style: normal;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 799px) {
   #slideCont {
     width: 100%;

@@ -10,7 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require mediaelement
  *= require_tree .
  *= require_self
  */
@@ -107,6 +106,10 @@ body {
 
       span {
         margin-left: 50px;
+
+        &:first-child {
+          margin-left: 0;
+        }
       }
     }
 
@@ -124,6 +127,10 @@ body {
     #right {
       span {
         margin-right: 50px;
+
+        &:last-child {
+          margin-left: 0;
+        }
       }
     }
   }

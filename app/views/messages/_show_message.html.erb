@@ -1,20 +1,21 @@
 <% if @message.media_processing %>
-  <div class="processing" style="background-image: url(/img/logo.png)"></div>
+  <div id="outPoster" style="background-image: url(/img/logo.png)"></div>
 <% else %>
   <% if @message.content_type == 'video' %>
-    <video width="800" height="500" poster="<%= @message.poster.url %>" controls="controls" preload="none">
+    <video width='800' height='500' poster="<%= @message.poster.url %>" controls="controls" preload="none">
       <source src="<%= @message.media.url %>" type="<%= @message.media.content_type %>" />
       <source src="<%= @message.media.url(:webm) %>" type="video/webm" />
       <source src="<%= @message.media.url(:ogv) %>" type="video/ogg" />
       <!-- Flash fallback for non-HTML5 browsers without JavaScript -->
-      <object width="800" height="500" type="application/x-shockwave-flash" data="/img/flashmediaelement.swf">
+      <object width='800' height='500' type="application/x-shockwave-flash" data="/img/flashmediaelement.swf">
         <param name="movie" value="/img/flashmediaelement.swf" />
-        <param name="flashvars" value="controls=true&file=<%= @message.media.mp4.url %>" />
+        <param name="flashvars" value="controls=true&file=<%= @message.media.url %>" />
         <img src="<%= @message.poster.url %>" width="800" height="500" title="No video playback capabilities" />
       </object>
     </video>
   <% else %>
-    <audio id="player2" controls="controls">
+    <div id="outPoster" style="background-image: url(<%= @message.poster.url %>)"></div>
+    <audio width='100%' height='40' id="player2" controls="controls">
       <source src="<%= @message.media.url %>" type="audio/mpeg">
       <source src="<%= @message.media.url(:wav) %>"  type="audio/wav">
     </audio>
