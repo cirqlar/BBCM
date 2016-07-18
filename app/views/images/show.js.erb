@@ -2,4 +2,5 @@ $('#modal').html("<%= j render @image %>").addClass('open');
 
 $('#close').click(function () {
   $('#modal').removeClass('open');
+  $('#modal').html('');  
 })

@@ -4,10 +4,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   include ::CarrierWave::Backgrounder::Delay
   include CarrierWave::MiniMagick
 
-  process :resize_to_fit => [600,300]
+  process :resize_to_fit => [800,500]
+  process :quality => 60
 
-  version :thumb do
-    process :resize_to_fill => [250, 130]
+  version :thumb, :if => :not_slide? do
+    process :resize_to_fill => [400, 200]
+    process :quality => 60
   end
 
   # Include RMagick or MiniMagick support:
@@ -63,5 +65,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  protected
+    def not_slide?(new_file = "")
+      return true unless model.class.to_s.underscore == 'slide'
+    end
 
 end

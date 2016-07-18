@@ -7,3 +7,4 @@ $(document).on "turbolinks:load", ->
     $('#modal').click (e) ->
       if e.target.id == 'modal'
         $('#modal').removeClass('open')
+        $('#modal').html('')
