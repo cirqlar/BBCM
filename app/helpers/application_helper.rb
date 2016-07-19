@@ -16,9 +16,9 @@ module ApplicationHelper
     return 'Home | '
   end
 
-  def nester(nest)
-    nest.map do |branch, leaves|
-      render(branch) + content_tag(:div, nester(leaves), class: "children")
-    end.join.html_safe
+  def crumbs(bread)
+    bread.map do |crumb|
+      link_to crumb.name.capitalize, crumb
+    end.join(' > ').html_safe
   end
 end

@@ -6,7 +6,7 @@ class Admin < ActiveRecord::Base
   validates :password, length: {minimum: 8, maximum: 30}, allow_blank: true
 
   has_secure_password
-  has_ancestry
+  has_ancestry cache_depth: true
 
   def reset_t
     self.update_attribute(:reset_digest, Admin.new_token)

@@ -4,7 +4,11 @@ class AdminsController < ApplicationController
   before_action :get_admin, only: [:edit, :update, :destroy]
 
   def index
-    @admins = Admin.all
+    if params[:id]
+      @admin = Admin.find(params[:id])
+    else
+      @admins = Admin.where("ancestry_depth = 0")
+    end
   end
 
   def new

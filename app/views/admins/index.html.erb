@@ -1,3 +1,16 @@
+<% if @admin %>
+  <div id="breadcrumbs">
+    <%= crumbs @admin.ancestors %>
+  </div>
+<% end %>
+
 <div class="admins">
-  <%= nester @admins.arrange(order: :created_at) %>
+  <% if @admin %>
+    <%= render @admin %>
+    <div id="children">
+      <%= render @admin.children %>
+    </div>
+  <% elsif @admins %>
+    <%= render @admins %>
+  <% end %>
 </div>
