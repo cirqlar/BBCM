@@ -1,28 +1,86 @@
-== README
+# BBCM website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Purpose
+This site is meant to:
+ * provide a means for BBCM to share their messages and images with a larger audience.
+ * provide a platform through which BBCM may be contacted
+ * provide a means by which BBCM may make announcements easily
+ * draw more individuals to wirship with BBCM
 
-Things you may want to cover:
+### Controllers and Actions
+1. Pages
+  * index
+  * contact
+  * about
 
-* Ruby version
+2. Images
+  * index
+  * show
+  * new
+  * create
+  * edit
+  * update
+  * destroy
 
-* System dependencies
+3. Messages
+  * index
+  * show
+  * new
+  * create
+  * edit
+  * update
+  * destroy
 
-* Configuration
+4. Announcements
+  * index
+  * show
+  * new
+  * create
+  * edit
+  * update
+  * destroy
 
-* Database creation
+5. Subscribers
+  * new
+  * create
+  * destroy
 
-* Database initialization
+6. Slides
+  * index
+  * new
+  * create
+  * edit
+  * update
+  * destroy
 
-* How to run the test suite
+### Models
+1. Image
+  * image
+  * event
+  * people
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Message
+  * media
+  * content_type
+  * poster
+  * desc
+  * title
 
-* Deployment instructions
+3. Announcement
+  * title
+  * content
+  * expires_at
 
-* ...
+4. Subscriber
+  * name
+  * email
 
+5. Slide
+  * image
+  * title
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Todo
+  - [ ] Style Admin
+  - [ ] Prepare site for hosting
+  - [ ] Setup hosting
+  - [ ] Host
