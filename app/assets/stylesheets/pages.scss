@@ -89,6 +89,36 @@
   }
 }
 
+#mission {
+  width: 100%;
+  max-width: 800px;
+  background-color: $tswhite;
+  padding: 40px 20px;
+  display: flex;
+  margin: 0 auto 10px auto;
+  align-items: center;
+  background-image: url(/img/show1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  h3 {
+    text-align: center;
+    width: 90%;
+    font-size: 2em;
+    margin: auto;
+    text-transform: uppercase;
+    color: $tscolor;
+    font-weight: 400;
+
+    span {
+      font-size: 0.6em;
+      text-transform: none;
+      font-weight: 300;
+    }
+  }
+}
+
 .row {
   width: 800px;
   margin: 0px auto 10px auto;
@@ -118,7 +148,7 @@
       font-weight: 400;
 
       span {
-        font-size: 0.5em;
+        font-size: 0.6em;
         text-transform: none;
         font-weight: 300;
       }
@@ -148,7 +178,7 @@
       font-weight: 400;
 
       span {
-        font-size: 0.5em;
+        font-size: 0.6em;
         text-transform: none;
         font-weight: 300;
       }
@@ -236,7 +266,7 @@
         font-weight: 400;
 
         span {
-          font-size: 0.5em;
+          font-size: 0.6em;
           text-transform: none;
           font-weight: 300;
         }
@@ -267,7 +297,7 @@
     font-weight: 400;
 
     span {
-      font-size: 0.5em;
+      font-size: 0.6em;
       text-transform: none;
       font-weight: 300;
     }

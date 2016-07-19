@@ -2,66 +2,210 @@
 <html>
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Athiti:200,300,400" rel="stylesheet">
   <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
+  * {
+    box-sizing: border-box;
+    font-family: "Athiti", sans-serif;
+    transition: 0.3s;
   }
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .cf:after, .cf:before {
+    content: " ";
+    display: table;
   }
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
+  .cf:after {
+    clear: both;
+  }
+
+  .turbolinks-progress-bar {
+    background-color: #38c300;
+  }
+
+  #loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
     background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+    background-image: url(/img/loader.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
   }
 
-  h1 {
+  body {
+    margin: 0;
+    padding: 0;
     font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+    border: 0;
+    background-image: url(/img/pattern.png);
+    background-repeat: repeat;
   }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  #header {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  #header .cont {
+    width: 800px;
+    height: 100%;
+    margin: auto;
+  }
+  #header .cont .headerItems {
+    display: inline-block;
+    height: 100%;
+    float: left;
+  }
+  #header .cont .nav {
+    width: 365px;
+    padding: 25px 40px;
+  }
+  #header .cont .nav span a {
+    text-decoration: none;
+    color: black;
+    line-height: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+  #header .cont .nav span a:hover {
+    color: #38c300;
+  }
+  #header .cont .nav span a.current {
+    color: #38c300;
+  }
+  #header .cont #left {
+    text-align: right;
+  }
+  #header .cont #left span {
+    margin-left: 50px;
+  }
+  #header .cont #left span:first-child {
+    margin-left: 0;
+  }
+  #header .cont #center {
+    width: 70px;
+    padding: 10px;
+    overflow: hidden;
+  }
+  #header .cont #center img {
+    height: 100%;
+    width: 100%;
+  }
+  #header .cont #right span {
+    margin-right: 50px;
+  }
+  #header .cont #right span:last-child {
+    margin-right: 0;
+  }
+  #header.open {
+    height: 100px;
+    background-color: transparent;
+  }
+  #header.open .cont .nav {
+    width: 350px;
+    padding: 40px;
+  }
+  #header.open .cont #center {
+    width: 100px;
+  }
+  #header.open + #bodyCont {
+    padding-top: 100px !important;
+  }
+  #bodyCont {
+    width: 100%;
+    height: 100%;
+    padding-top: 70px;
+  }
+  #footer {
+    width: 100%;
+    height: 70px;
+  }
+  #footer h4 {
+    line-height: 70px;
+    margin: 0;
+    text-align: center;
+    font-weight: 300;
+  }
+
+  @media only screen and (max-width: 799px) {
+    #loading {
+      background-size: 100px 100px;
+    }
+
+    #header .cont {
+      width: 500px;
+    }
+    #header .cont .nav {
+      width: 215px;
+      padding: 25px 10px;
+    }
+    #header .cont #left span {
+      margin-left: 20px;
+    }
+    #header .cont #right span {
+      margin-right: 20px;
+    }
+    #header.open .cont .nav {
+      width: 200px;
+      padding: 40px 10px;
+    }
+  }
+  @media only screen and (max-width: 499px) {
+    #header .cont {
+      width: 300px;
+    }
+    #header .cont .nav {
+      width: 115px;
+      padding: 10px 10px;
+    }
+    #header .cont #left span {
+      margin-left: 0px;
+    }
+    #header .cont #right span {
+      margin-right: 0px;
+    }
+    #header.open .cont .nav {
+      width: 100px;
+      padding: 25px 10px;
+    }
   }
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+  <div id="header" class="open">
+    <div class="cont">
+      <div id="left" class="headerItems nav">
+        <span><a class="" href="/messages">Messages</a></span>
+        <span><a class="" href="/about">About</a></span>
+      </div>
+      <a href="/" id="center" class="headerItems"><img src="/img/logo.png" alt="logo" id="logo"></a>
+      <div id="right" class="headerItems nav">
+        <span><a class="" href="/contact">Contact</a></span>
+        <span><a class="" href="/gallery">Gallery</a></span>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  </div>
+  <div id="bodyCont">
+    <div class="dialog">
+      <div>
+        <h1>The page you were looking for doesn't exist.</h1>
+        <p>You may have mistyped the address or the page may have moved.</p>
+      </div>
+      <p>If you are the application owner check the logs for more information.</p>
+    </div>
   </div>
 </body>
 </html>
