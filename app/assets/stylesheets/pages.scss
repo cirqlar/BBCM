@@ -54,8 +54,12 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto 10px auto;
-  background-color: $tswhite;
+  background-image: url(/img/Pastorbg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 10px;
+  color: $white;
 
   .img {
     width: 150px;

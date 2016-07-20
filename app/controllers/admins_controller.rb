@@ -9,6 +9,10 @@ class AdminsController < ApplicationController
     else
       @admins = Admin.where("ancestry_depth = 0")
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new

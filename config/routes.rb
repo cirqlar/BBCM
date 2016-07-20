@@ -18,11 +18,11 @@ Rails.application.routes.draw do
   resources :subscribers, only: [:create]
   get 'subs/:id' => 'subscribers#destroy', as: :subs_destroy
 
-  get 'hashmin/:id' => 'admins#index', as: :admin
-  resources :admins, except: [:show], path: 'hashmin'
   get 'hashmin/login' => 'sessions#new', as: :login
   post 'hashmin/login' => 'sessions#create'
   get 'hashmin/logout' => 'sessions#destroy', as: :logout
+  get 'hashmin/:id' => 'admins#index', as: :admin
+  resources :admins, except: [:show], path: 'hashmin'
 
   resources :password_resets, only: [:new, :create, :edit, :update]
 

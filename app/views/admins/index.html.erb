@@ -1,8 +1,8 @@
-<% if @admin %>
-  <div id="breadcrumbs">
+<div id="breadcrumbs">
+  <% if @admin %>
     <%= crumbs @admin.ancestors %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <div class="admins">
   <% if @admin %>

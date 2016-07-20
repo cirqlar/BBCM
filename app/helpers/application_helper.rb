@@ -18,7 +18,7 @@ module ApplicationHelper
 
   def crumbs(bread)
     bread.map do |crumb|
-      link_to crumb.name.capitalize, crumb
+      link_to crumb.name.capitalize, crumb, remote: true
     end.join(' > ').html_safe
   end
 end
