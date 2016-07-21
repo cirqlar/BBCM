@@ -10,6 +10,7 @@ set :puma_workers,    0
 set :sidekiq_role, :app
 set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
 set :sidekiq_env, 'production'
+set :keep_releases, 1
 
 # Don't change these unless you know what you're doing
 set :pty,             false
@@ -77,6 +78,21 @@ namespace :deploy do
     end
   end
 
+  desc "Force disconnect of open backends and drop database"
+  task :closeit do
+    dbname = 'your_database_name'
+    run "psql -U postgres",
+        :data => <<-"PSQL"
+           REVOKE CONNECT ON DATABASE bbcm_pro FROM public;
+           ALTER DATABASE bbcm_pro CONNECTION LIMIT 0;
+           SELECT pg_terminate_backend(pid)
+             FROM pg_stat_activity
+             WHERE pid <> pg_backend_pid()
+             AND datname='bbcm_pro';
+           DROP DATABASE bbcm_pro;
+        PSQL
+  end
+
   desc "Migrate the database."
   task :migrate do
     on roles(:app) do
@@ -104,6 +120,7 @@ namespace :deploy do
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
+  after  :finishing,    :closeit
   after  :finishing,    :migrate
   after  :finishing,    :seed
 end
