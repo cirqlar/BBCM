@@ -77,27 +77,7 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-
-  desc "Force disconnect of open backends and drop database"
-  task :closeit do
-    dbname = 'bbcm_pro'
-    password = 'Thisisus123'
-    on roles(:app) do
-      execute "psql -U postgres -p",
-        :data => #{password}
-           <<-"PSQL"
-           REVOKE CONNECT ON DATABASE #{dbname} FROM public;
-           ALTER DATABASE #{dbname} CONNECTION LIMIT 0;
-           SELECT pg_terminate_backend(pid)
-             FROM pg_stat_activity
-             WHERE pid <> pg_backend_pid()
-             AND datname='#{dbname}';
-           DROP DATABASE #{dbname};
-           CREATE DATABASE #{dbname} WITH OWNER = rails;
-        PSQL
-      end
-  end
-
+  
   desc "Migrate the database."
   task :migrate do
     on roles(:app) do
