@@ -7,10 +7,6 @@ set :application,     'bbcm'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-set :sidekiq_default_hooks, true
-set :sidekiq_role, :app
-set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
-set :sidekiq_env, 'production'
 set :keep_releases, 1
 
 # Don't change these unless you know what you're doing
@@ -28,6 +24,10 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :sidekiq_default_hooks, true
+set :sidekiq_role, :app
+set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
+set :sidekiq_env, 'production'
 
 ## Defaults:
 # set :scm,           :git
