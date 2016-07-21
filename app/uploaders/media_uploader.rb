@@ -13,14 +13,32 @@ class MediaUploader < CarrierWave::Uploader::Base
 
   version :webm, :if => :video? do
     process encode_video: [:webm]
+    def full_filename(for_file)
+      parent_name = super(for_file)
+      ext         = File.extname(parent_name)
+      base_name   = parent_name.chomp(ext)
+      base_name + ".#{version_name}"
+    end
   end
 
   version :ogv, :if => :video? do
     process encode_video: [:ogv]
+    def full_filename(for_file)
+      parent_name = super(for_file)
+      ext         = File.extname(parent_name)
+      base_name   = parent_name.chomp(ext)
+      base_name + ".#{version_name}"
+    end
   end
 
   version :wav, :if => :audio? do
     process encode_audio: [:wav]
+    def full_filename(for_file)
+      parent_name = super(for_file)
+      ext         = File.extname(parent_name)
+      base_name   = parent_name.chomp(ext)
+      base_name + ".#{version_name}"
+    end
   end
 
   # Choose what kind of storage to use for this uploader:
