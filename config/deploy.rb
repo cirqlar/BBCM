@@ -77,14 +77,27 @@ namespace :deploy do
     end
   end
 
-  desc "migrate the database with seed data"
+  desc "Migrate the database."
   task :migrate do
-    run "cd #{current_path}; bundle exec rake db:migrate:reset RAILS_ENV=production"
+    on roles(:app) do
+      within "#{current_path}" do
+        with rails_env: :production do
+          execute :rake, "db:migrate:reset"
+        end
+      end
+    end
   end
 
-  desc "reload the database with seed data"
+
+  desc "Seed the database."
   task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=production"
+    on roles(:app) do
+      within "#{current_path}" do
+        with rails_env: :production do
+          execute :rake, "db:seed"
+        end
+      end
+    end
   end
 
   before :starting,     :check_revision
