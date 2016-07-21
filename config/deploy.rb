@@ -1,6 +1,6 @@
 
 # Change these
-server '178.79.165.238', port: 24, roles: [:web, :app, :db], primary: true
+server '178.79.165.238', user: 'deploy', roles: %w{web app}
 
 set :repo_url,        'git@bitbucket.org:iaks/bbcm.git'
 set :application,     'bbcm'
