@@ -82,7 +82,7 @@ namespace :deploy do
   task :force_close_and_drop_db do
     dbname = 'bbcm_pro'
     on roles(:app) do
-      execute "psql -U postgres",
+      exec "psql -U postgres",
         :data => <<-"PSQL"
            REVOKE CONNECT ON DATABASE #{dbname} FROM public;
            ALTER DATABASE #{dbname} CONNECTION LIMIT 0;
@@ -92,7 +92,7 @@ namespace :deploy do
              AND datname='#{dbname}';
            DROP DATABASE #{dbname};
         PSQL
-      end 
+      end
   end
 
   desc "Migrate the database."
