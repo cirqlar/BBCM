@@ -14,7 +14,7 @@ set :keep_releases, 1
 
 # Don't change these unless you know what you're doing
 set :pty,             false
-set :use_sudo,        true
+set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
