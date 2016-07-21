@@ -82,7 +82,8 @@ namespace :deploy do
   task :closeit do
     dbname = 'bbcm_pro'
     on roles(:app) do
-      exec "psql -U postgres",
+      execute "psql -U postgres -p",
+        :data => <<-"Thisisus123"
         :data => <<-"PSQL"
            REVOKE CONNECT ON DATABASE #{dbname} FROM public;
            ALTER DATABASE #{dbname} CONNECTION LIMIT 0;
