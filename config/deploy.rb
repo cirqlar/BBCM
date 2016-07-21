@@ -90,24 +90,11 @@ namespace :deploy do
     end
   end
 
-
-  desc "Seed the database."
-  task :seed do
-    on roles(:app) do
-      within "#{current_path}" do
-        with rails_env: :production do
-          execute :rake, "db:seed"
-        end
-      end
-    end
-  end
-
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
   after  :finishing,    :migrate
-  after  :finishing,    :seed
 end
 
 # ps aux | grep puma    # Get puma pid
