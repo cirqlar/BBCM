@@ -79,18 +79,20 @@ namespace :deploy do
   end
 
   desc "Force disconnect of open backends and drop database"
-  task :closeit do
-    dbname = 'your_database_name'
-    execute "psql -U postgres",
+  task :force_close_and_drop_db do
+    dbname = 'bbcm_pro'
+    on roles(:app) do
+      execute "psql -U postgres",
         :data => <<-"PSQL"
-           REVOKE CONNECT ON DATABASE bbcm_pro FROM public;
-           ALTER DATABASE bbcm_pro CONNECTION LIMIT 0;
+           REVOKE CONNECT ON DATABASE #{dbname} FROM public;
+           ALTER DATABASE #{dbname} CONNECTION LIMIT 0;
            SELECT pg_terminate_backend(pid)
              FROM pg_stat_activity
              WHERE pid <> pg_backend_pid()
-             AND datname='bbcm_pro';
-           DROP DATABASE bbcm_pro;
+             AND datname='#{dbname}';
+           DROP DATABASE #{dbname};
         PSQL
+      end 
   end
 
   desc "Migrate the database."
@@ -120,7 +122,6 @@ namespace :deploy do
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
-  after  :finishing,    :closeit
   after  :finishing,    :migrate
   after  :finishing,    :seed
 end
