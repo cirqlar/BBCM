@@ -28,8 +28,8 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: bbcm_prod
+  database: <%= ENV["BBCM_DB_NAME"] %>
   host: localhost
   pool: 5
-  username: rails
-  password: rails_dev
+  username: <%= ENV["BBCM_DB_USER"] %>
+  password: <%= ENV["BBCM_DB_PWD"] %>
