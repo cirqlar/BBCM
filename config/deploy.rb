@@ -77,7 +77,7 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-  
+
   desc "Migrate the database."
   task :migrate do
     on roles(:app) do
@@ -105,7 +105,6 @@ namespace :deploy do
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
-  after  :finishing,    :closeit
   after  :finishing,    :migrate
   after  :finishing,    :seed
 end
