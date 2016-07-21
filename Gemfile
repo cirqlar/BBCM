@@ -62,6 +62,7 @@ group :development do
   gem 'capistrano-rbenv', github: "capistrano/rbenv", require: false
   gem 'capistrano3-puma',   require: false
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq', require: false
+  gem 'capistrano-rbenv-vars'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
