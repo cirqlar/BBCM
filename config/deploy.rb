@@ -91,6 +91,7 @@ namespace :deploy do
              WHERE pid <> pg_backend_pid()
              AND datname='#{dbname}';
            DROP DATABASE #{dbname};
+           CREATE DATABASE #{dbname} WITH OWNER = 'rails';
         PSQL
       end
   end
