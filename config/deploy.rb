@@ -83,7 +83,7 @@ namespace :deploy do
     on roles(:app) do
       within "#{current_path}" do
         with rails_env: :production do
-          execute :rake, "db:migrate:reset"
+          execute :rake, "db:migrate"
         end
       end
     end
