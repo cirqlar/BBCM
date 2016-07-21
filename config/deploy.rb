@@ -84,8 +84,8 @@ namespace :deploy do
     password = 'Thisisus123'
     on roles(:app) do
       execute "psql -U postgres -p",
-        :data => <<-#{password}
-          "PSQL"
+        :data => #{password}
+        :data => <<-"PSQL"
            REVOKE CONNECT ON DATABASE #{dbname} FROM public;
            ALTER DATABASE #{dbname} CONNECTION LIMIT 0;
            SELECT pg_terminate_backend(pid)
