@@ -79,7 +79,7 @@ namespace :deploy do
   end
 
   desc "Force disconnect of open backends and drop database"
-  task :force_close_and_drop_db do
+  task :closeit do
     dbname = 'bbcm_pro'
     on roles(:app) do
       exec "psql -U postgres",
@@ -91,7 +91,7 @@ namespace :deploy do
              WHERE pid <> pg_backend_pid()
              AND datname='#{dbname}';
            DROP DATABASE #{dbname};
-           CREATE DATABASE #{dbname} WITH OWNER = 'rails';
+           CREATE DATABASE #{dbname} WITH OWNER = rails;
         PSQL
       end
   end
@@ -123,6 +123,7 @@ namespace :deploy do
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
+  after  :finishing,    :closeit
   after  :finishing,    :migrate
   after  :finishing,    :seed
 end
