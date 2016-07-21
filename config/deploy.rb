@@ -81,9 +81,10 @@ namespace :deploy do
   desc "Force disconnect of open backends and drop database"
   task :closeit do
     dbname = 'bbcm_pro'
+    password = 'Thisisus123'
     on roles(:app) do
-      execute "psql -U postgres p",
-        :data => <<-"Thisisus123"
+      execute "psql -U postgres -p",
+        :data => <<-#{password}
           "PSQL"
            REVOKE CONNECT ON DATABASE #{dbname} FROM public;
            ALTER DATABASE #{dbname} CONNECTION LIMIT 0;
