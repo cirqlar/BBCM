@@ -54,10 +54,7 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto 10px auto;
-  background-image: url(/img/Pastorbg.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: $tscolor;
   padding: 10px;
   color: $white;
 
@@ -101,7 +98,7 @@
   display: flex;
   margin: 0 auto 10px auto;
   align-items: center;
-  background-image: url(/img/show1.jpg);
+  background-image: url(/img/mission.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -137,7 +134,7 @@
     padding: 20px;
     display: flex;
     align-items: center;
-    background-image: url(/img/show1.jpg);
+    background-image: url(/img/vision.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -167,7 +164,7 @@
     background-color: $tswhite;
     display: flex;
     align-items: center;
-    background-image: url(/img/show2.jpg);
+    background-image: url(/img/motto.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -339,7 +336,7 @@
 
       .social {
         display: block;
-        margin: auto;
+        margin: 10px auto;
         width: 70px;
         height: 70px;
       }

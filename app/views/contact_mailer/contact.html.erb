@@ -1,7 +1,13 @@
-<h1><%= @message[:title] %></h1>
-
-<pre>
-  <%= raw @message[:content] %>
-</pre>
-
-<span><%= @message[:time_sent] %></span>
+<table width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="rgb(56,195,0)" style="background: rgb(56,195,0);" class="100p">
+    <tr>
+        <td align="center" style="font-size:24px; color:#FFFFFF;"><font face="'Athiti', Arial, sans-serif">Dear BBCM</font></td>
+    </tr>
+</table>
+<table width="640" border="0" cellspacing="0" cellpadding="20" bgcolor="#ffffff" class="100p">
+    <tr>
+        <td align="center" style="font-size:16px; color:#848484;"><font face="'Athiti', Arial, sans-serif"><span style="color:rgb(56,195,0); font-size:24px;"><%= @message[:title] %> sent by <%= @message[:sender] %>(<%= @message[:email] %>)<%= @message[:time_sent] %></span><br />
+            <br />
+            <span style="font-size:16px;"><%= simple_format @message[:content] %></span></font>
+        </td>
+    </tr>
+</table>

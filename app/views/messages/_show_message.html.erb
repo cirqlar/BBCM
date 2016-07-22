@@ -1,5 +1,5 @@
 <% if @message.media_processing %>
-  <div id="outPoster" style="background-image: url(/img/logo.png)"></div>
+  <div id="outPoster" style="background-image: url(/img/processing.jpg)"></div>
 <% else %>
   <% if @message.content_type == 'video' %>
     <video width='800' height='500' poster="<%= @message.poster.url %>" controls="controls" preload="none">
