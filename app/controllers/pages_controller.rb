@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def create
     @message = params[:pages]
-    ContactMailer.contact(@message).deliver
+    ContactMailer.contact(@message).deliver_later
     flash[:success] = "Email sent successfully"
     redirect_to contact_path
   end
