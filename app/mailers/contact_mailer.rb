@@ -8,6 +8,6 @@ class ContactMailer < ApplicationMailer
   def contact(message)
     @message = message
 
-    mail from: %("#{message[:sender]}" <#{message[:email]}>), to: %("BBCM" <thebbcm@gmail.com>), subject: message[:title]
+    mail from: %("BBCM" <#{ENV['GMAIL_USER']}>), to: %("BBCM" <#{ENV['GMAIL_USER']}>), subject: message[:title]
   end
 end

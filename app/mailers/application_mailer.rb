@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: %("BBCM" <thebbcm@gmail.com>)
+  default from: %("BBCM" <#{ENV['GMAIL_USER']}>)
   layout 'mailer'
 end
