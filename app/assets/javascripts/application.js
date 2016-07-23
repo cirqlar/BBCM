@@ -13,6 +13,5 @@
 //= require jquery
 //= require mediaelement
 //= require jquery_ujs
-//= require jquery-file-upload
 //= require turbolinks
 //= require_tree .
