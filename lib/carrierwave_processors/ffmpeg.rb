@@ -11,7 +11,6 @@ module CarrierWave
     end
 
     def encode_video(format)
-      ::FFMPEG.ffmpeg_binary = '/home/deploy/bin/ffmpeg'
       directory = File.dirname(current_path)
       tmpfile = File.join(directory, 'tmpfile')
       File.rename(current_path, tmpfile)
