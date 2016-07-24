@@ -10,7 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require plupload
 //= require jquery
 //= require mediaelement
 //= require jquery_ujs
