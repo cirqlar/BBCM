@@ -2,7 +2,7 @@ $('#mediaCont').html("<%= j render 'show_message' %>");
 
 $('video, audio').mediaelementplayer({
   plugins: ['flash', 'silverlight'],
-  pluginPath: "/uploads/",
+  pluginPath: "/deps/",
   flashName: "flashmediaelement.swf",
   silverlightName: "silverlightmediaelement.xap"
 })
