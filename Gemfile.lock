@@ -281,7 +281,6 @@ GEM
       railties (= 4.2.6)
       sprockets-rails
     rails-assets-mediaelement (2.22.0)
-    rails-assets-plupload (2.1.9)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -391,7 +390,6 @@ DEPENDENCIES
   puma
   rails (= 4.2.6)
   rails-assets-mediaelement!
-  rails-assets-plupload!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sidekiq
