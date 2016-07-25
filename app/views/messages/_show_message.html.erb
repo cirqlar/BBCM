@@ -7,8 +7,8 @@
       <source src="<%= @message.media.url(:webm) %>" type="video/webm" />
       <source src="<%= @message.media.url(:ogv) %>" type="video/ogg" />
       <!-- Flash fallback for non-HTML5 browsers without JavaScript -->
-      <object width='800' height='500' type="application/x-shockwave-flash" data="/img/flashmediaelement.swf">
-        <param name="movie" value="/img/flashmediaelement.swf" />
+      <object width='800' height='500' type="application/x-shockwave-flash" data="/deps/flashmediaelement.swf">
+        <param name="movie" value="/deps/flashmediaelement.swf" />
         <param name="flashvars" value="controls=true&file=<%= @message.media.url %>" />
         <img src="<%= @message.poster.url %>" width="800" height="500" title="No video playback capabilities" />
       </object>
