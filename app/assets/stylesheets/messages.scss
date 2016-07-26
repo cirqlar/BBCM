@@ -936,125 +936,56 @@
   }
 }
 
-#messagesCont {
-  width: 800px;
-  margin: 0 auto 0px auto;
-  background-color: $tswhite;
 
-  #tabs {
-    float: left;
+#tabs {
+  float: left;
 
-    a {
-      display: inline-block;
-      width: 100px;
-      height: 50px;
-      text-align: center;
-      line-height: 50px;
-      color: $black;
-      text-decoration: none;
-      cursor: pointer;
-
-      &.current {
-        border-bottom: solid 5px $color;
-        color: $color;
-      }
-    }
-  }
-
-  #filterCont {
-    float: right;
-    width: auto;
-    margin: 0;
-    background-color: transparent;
+  a {
+    display: inline-block;
+    width: 100px;
     height: 50px;
-    padding: 0 10px;
+    text-align: center;
+    line-height: 50px;
+    color: $black;
+    text-decoration: none;
+    cursor: pointer;
 
-    label {
-      display: inline-block;
-      padding: 0px 10px 0px 0px;
-      line-height: 50px;
-      font-size: 15px;
-      font-weight: 200;
-      height: 50px;
-    }
-
-    input {
-      height: 30px;
-      width: 300px;
-      margin: 10px 0;
-      padding: 2px;
-      border: none;
-      border-bottom: solid 1px #38c300;
-      background: transparent;
-      float: right;
-      outline: none;
-      font-weight: 200;
-      font-size: 15px;
+    &.current {
+      border-bottom: solid 5px $color;
+      color: $color;
     }
   }
+}
 
-  #messages {
-    margin-top: 10px;
+#filterCont {
+  float: right;
+  width: auto;
+  margin: 0;
+  background-color: transparent;
+  height: 50px;
+  padding: 0 10px;
 
-    a.message {
-      width: 50%;
-      position: relative;
-      padding: 10px 10px;
-      float: left;
-      color: $black;
-      text-decoration: none;
+  label {
+    display: inline-block;
+    padding: 0px 10px 0px 0px;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: 200;
+    height: 50px;
+  }
 
-      &:hover, &:focus { background-color: $rtscolor; }
-
-      .poster {
-        width: 100%;
-        height: 200px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-      }
-
-      .type {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 60px;
-        height: 60px;
-        padding: 15px;
-        opacity: 0.8;
-
-        img {
-          max-width: 100%;
-          max-height: 100%;
-        }
-      }
-
-      .descCont {
-        position: absolute;
-        bottom: 10px;
-        width: 95%;
-        padding: 10px;
-        left: 10px;
-        background: $rtswhite;
-
-        h3 {
-          margin: 0;
-          font-weight: 300;
-          font-size: 15px;
-          text-transform: uppercase;
-          line-height: 29px;
-          border-bottom: solid 1px $color;
-        }
-
-        span {
-          font-weight: 200;
-          display: block;
-          font-size: 12px;
-          line-height: 25px;
-        }
-      }
-    }
+  input {
+    height: 30px;
+    width: 300px;
+    margin: 10px 0;
+    padding: 2px;
+    border: none;
+    border-bottom: solid 1px #38c300;
+    background: transparent;
+    float: right;
+    outline: none;
+    font-weight: 200;
+    font-size: 15px;
   }
 }
 

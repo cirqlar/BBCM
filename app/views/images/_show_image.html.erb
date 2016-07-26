@@ -1,0 +1,10 @@
+<div class="image">
+  <%= content_tag :div, "", style: "background-image: url(#{image.image.url})", class: "img" %>
+  <div class="details">
+    <span class="event"><%= image.event %></span>
+    <span class="people"><%= image.people %></span>
+    <span class="date"><%= image.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
+  </div>
+</div>
+<%= link_to "Edit", edit_image_path(image), class: "delete" if logged_in? %>
+<%= link_to "Delete", image, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? %>

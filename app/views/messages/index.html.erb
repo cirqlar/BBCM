@@ -1,7 +1,7 @@
 <div id="mediaCont">
   <%= render 'show_message' %>
 </div>
-<div class="cf" id="messagesCont">
+<div class="cf medias">
   <div class="cont cf">
     <div id="tabs" class="cf">
       <%= return_tabs %>
@@ -10,8 +10,10 @@
     <%= render 'tags' %>
   </div>
 
-  <div class="cf" id="messages">
-    <%= render @messages %>
+  <div class="cf mediasCont">
+    <% @messages.each do |message| %>
+      <%= link_to render(message), show_message_path(:id => message), remote:true, style: "background-image: url(#{message.media_processing ? '/img/processing_small.jpg' : message.poster.thumb.url})", class: 'medias' %>
+    <% end %>
   </div>
 </div>
 <div id="scrolling">

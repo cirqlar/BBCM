@@ -46,6 +46,7 @@ gem 'sidekiq-cron'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'carrierwave_backgrounder'
+gem "font-awesome-rails"
 
 
 group :development, :test do

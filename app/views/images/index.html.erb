@@ -1,5 +1,9 @@
-<div class="cf" id="gallery">
-  <%= index_images @images %>
+<div class="medias">
+  <div class="cf mediasCont">
+    <% @images.each do |image| %>
+      <%= link_to render(image), image, remote: true, style: "background-image: url(#{image.image.thumb.url})", class: 'medias' %>
+    <% end %>
+  </div>
 </div>
 <div id="scrolling">
   <%= will_paginate @images %>

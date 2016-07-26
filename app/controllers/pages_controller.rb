@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def index
     @slides = Slide.all.take(5)
-    @ans = Announcement.all.take(5)
+    @messages =  Message.where("media_processing = ?", false).take(6)
+    @images = Image.all.take(6)
     @subscriber = Subscriber.new
   end
 

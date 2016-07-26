@@ -2,8 +2,6 @@
 <html>
   <head>
     <title><%= title_er %>BBCM</title>
-    <link href="https://fonts.googleapis.com/css?family=Athiti:200,300,400" rel="stylesheet">
-    <script src="https://use.fortawesome.com/d0fead02.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -11,21 +9,17 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div id="bodyCont">
-      <% unless flash.empty? %>
-        <div id="flash">
-          <% flash.each do |type, msg| %>
-            <p class="<%= type %>">
-              <%= msg %>
-            </p>
-          <% end %>
-        </div>
+    <div id="flash">
+      <% flash.each do |type, msg| %>
+        <p class="<%= type %>">
+          <%= msg %>
+        </p>
       <% end %>
-
-      <%= content_tag :div, render('layouts/topBar'), id: "topBar" if logged_in? %>
-
-      <%= yield %>
     </div>
+
+    <%= content_tag :div, render('layouts/topBar'), id: "topBar" if logged_in? %>
+
+    <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
 </html>

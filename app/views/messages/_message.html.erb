@@ -1,12 +1,5 @@
-<a href="<%= show_message_path(:id => message) %>" class="message" data-remote="true">
-  <% if !message.media_processing %>
-    <div class="poster" style="background-image: url(<%= message.poster.thumb.url %>)"></div>
-  <% else %>
-    <div class="poster" style="background-image: url(/img/processing_small.jpg)"></div>
-  <% end %>
-  <img src="/img/<%= message.content_type %>.svg" alt="<%= message.content_type %>" class="type" />
-  <div class="descCont">
-    <h3><%= message.title %></h3>
-    <span class="date"><%= message.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
-  </div>
-</a>
+<i class="type fa fa-<%= message.content_type == 'video' ? 'film' : 'music' %>"></i>
+<div class="descCont">
+  <h3><%= message.title %></h3>
+  <span class="date"><%= message.updated_at.strftime("%H:%M %A, %d %B %Y") %></span>
+</div>
