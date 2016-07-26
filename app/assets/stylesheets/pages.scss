@@ -1,6 +1,6 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* Place all the styles related to the Pages controller here.*/
+/* They will automatically be included in application.css.*/
+/* You can use Sass (SCSS) here: http://sass-lang.com/*/
 
 @import "partials/vars";
 
@@ -16,8 +16,12 @@
 
   .slide {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -78,7 +82,7 @@
       color: $black;
       text-decoration: none;
 
-      &:hover, &:focus { transform: scale(0.9); }
+      &:hover, &:focus { -webkit-transform: scale(0.9); transform: scale(0.9); }
 
       .type {
         display: block;
@@ -135,8 +139,12 @@
 
   .service {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -165,8 +173,12 @@
   position: relative;
   width: 100%;
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

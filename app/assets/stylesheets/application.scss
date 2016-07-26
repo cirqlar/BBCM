@@ -21,6 +21,9 @@
   box-sizing: border-box;
   font-family: "Athiti", sans-serif;
   transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
 }
 
 .cf:after, .cf:before {
@@ -110,28 +113,6 @@ body {
   }
 }
 
-#topBar {
-  width: 100%;
-  max-width: 800px;
-  min-height: 40px;
-  margin: 0px auto 10px auto;
-  background-color: $tswhite;
-  text-align: center;
-
-  a {
-    text-decoration: none;
-    color: black;
-    line-height: 40px;
-    font-weight: 300;
-    text-transform: uppercase;
-    font-size: 1em;
-
-    &:hover {
-      color: $color;
-    }
-  }
-}
-
 .linkBtn {
   text-decoration: none;
   text-transform: uppercase;
@@ -211,170 +192,19 @@ body {
 
 #flash {
   position: fixed;
-  width: 100%;
-  max-width: 800px;
-  margin: 0px auto 10px auto;
-
-  p {
-    font-size: 1em;
-    font-weight: 300;
-    margin: 0;
-    text-align: center;
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-
-    &.success { background-color: $rtscolor; }
-    &.info { background-color: $rtswhite; }
-    &.danger { background-color: rgba(255, 0, 0, 0.5); }
-  }
 }
 
-form {
+#modal {
+  position: fixed;
   width: 100%;
-  padding: 10px;
-  margin: auto;
+  height: 100%;
+  top: 100%;
+  left: 0;
+  background-color: $rtsblack;
+  z-index: 1000;
 
-  > h3 {
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    font-size: 2em;
-    text-transform: uppercase;
-    margin: 0.5em auto 0px auto;
-    font-weight: 400;
-  }
-
-  > p {
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
-    font-size: 1.1em;
-    margin: 0px auto 2em auto;
-  }
-
-  #create {
-    width: 80%;
-    line-height: 40px;
-    text-align: center;
-    margin: 0px auto 10px auto;
-    border: 1px solid $color;
-    display: none;
-  }
-
-  #errors {
-    width: 80%;
-    margin: 0px auto 10px auto;
-
-    h3 {
-      font-size: 1.3em;
-      font-weight: 400;
-      margin: 0;
-    }
-
-    p {
-      font-size: 0.8em;
-      font-weight: 200;
-
-      &:last-child {
-        margin-bottom: 1.5em;
-      }
-    }
-  }
-
-  a {
-    width: 100%;
-    max-width: 200px;
-    display: block;
-    line-height: 40px;
-    height: 40px;
-    margin: 0px auto 10px auto;
-    color: $black;
-    text-decoration: none;
-    text-align: center;
-
-    &:hover, &:focus { color: $color; }
-  }
-
-  fieldset {
-    width: 90%;
-    max-width: 700px;
-    margin: 0px auto 10px auto;
-    position: relative;
-    background-color: transparent;
-    border: 1px solid $color;
-    padding: 0;
-    font-size: 0px;
-
-    label {
-      min-width: 20%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      display: inline-block;
-      line-height: 40px;
-      text-align: center;
-      text-transform: uppercase;
-      border-right: 1px solid $rrtscolor;
-      font-size: 1rem;
-    }
-
-    input[type=text], input[type=email], input[type=password], textarea, input[type=file] {
-      width: 100%;
-      height: 40px;
-      background: transparent;
-      text-align: left;
-      font-size: 0.8rem;
-      border: none;
-      padding: 5px 10px 5px 25%;
-      outline: none;
-    }
-
-    select {
-      height: 40px;
-      background-color: transparent;
-      width: 16%;
-      float: left;
-      border: none;
-      outline: #38c300;
-      border-right: 1px solid rgba(56,195,0,0.3);
-
-      &:nth-child(2) {
-        margin-left: 20%;
-      }
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    input[type=file] { padding: 0px 10px 0px 25%; }
-
-    textarea {
-      height: 150px;
-      margin-top: 40px;
-      padding: 5px 10px;
-      border-top: 1px solid $rrtscolor;
-      resize: none;
-    }
-  }
-
-  input[type=submit] {
-    display: block;
-    width: 90%;
-    max-width: 700px;
-    height: 40px;
-    margin: 0px auto;
-    text-transform: uppercase;
-    background-color: transparent;
-    color: $color;
-    border: 1px solid $color;
-    cursor: pointer;
-
-    &:hover, &:focus {
-      background-color: $color;
-      color: $white;
-    }
+  &.open {
+    top: 0;
   }
 }
 
@@ -387,27 +217,5 @@ form {
     margin: 0;
     text-align: center;
     font-weight: 300;
-  }
-}
-
-@media only screen and (max-width: 499px) {
-  form {
-    fieldset {
-      width: 98%;
-    }
-    input[type=submit] {
-      width: 98%;
-    }
-  }
-}
-
-@media only screen and (max-width: 499px) {
-  form {
-    fieldset {
-      label { min-width: 30%; font-size: 0.8rem; }
-      input[type=text], input[type=email], input[type=password] { padding: 5px 5px 5px 35%; }
-      input[type=file] { padding: 0px 10px 0px 30%; }
-      select { width: 14%;}
-    }
   }
 }
