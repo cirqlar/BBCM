@@ -231,11 +231,9 @@ body {
 }
 
 form {
-  width: 800px;
-  max-width: 100%;
+  width: 100%;
   padding: 10px;
-  margin: 0px auto 10px auto;
-  background-color: rgba(255,255,255,0.8);
+  margin: auto;
 
   > h3 {
     text-align: center;
@@ -256,8 +254,7 @@ form {
   }
 
   #create {
-    width: 100%;
-    max-width: 500px;
+    width: 80%;
     line-height: 40px;
     text-align: center;
     margin: 0px auto 10px auto;
@@ -266,8 +263,7 @@ form {
   }
 
   #errors {
-    width: 100%;
-    max-width: 500px;
+    width: 80%;
     margin: 0px auto 10px auto;
 
     h3 {
@@ -301,8 +297,8 @@ form {
   }
 
   fieldset {
-    width: 500px;
-    max-width: 98%;
+    width: 90%;
+    max-width: 700px;
     margin: 0px auto 10px auto;
     position: relative;
     background-color: transparent;
@@ -365,8 +361,8 @@ form {
 
   input[type=submit] {
     display: block;
-    width: 500px;
-    max-width: 98%;
+    width: 90%;
+    max-width: 700px;
     height: 40px;
     margin: 0px auto;
     text-transform: uppercase;
