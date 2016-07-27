@@ -1,0 +1,9 @@
+$('#gallery').append("#{j index_images @images}")
+- if @images.next_page
+  $('#scrolling').html("#{j will_paginate @images}")
+  $('.pagination').hide()
+- else
+  $(window).off('scroll');
+  $('#scrolling').html("
+  %span> No more content
+  ");

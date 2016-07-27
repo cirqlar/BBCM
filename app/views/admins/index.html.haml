@@ -1,0 +1,10 @@
+#breadcrumbs
+  - if @admin
+    = crumbs @admin.ancestors
+.admins
+  - if @admin
+    = render @admin
+    #children
+      = render @admin.children
+  - elsif @admins
+    = render @admins

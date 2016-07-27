@@ -1,8 +1,0 @@
-<% if @admin %>
-  $('.admins').html('<%= j render @admin %>');
-  $('.admins').append('<%= j content_tag :div, render(@admin.children), id: "children" %>');
-  $('#breadcrumbs').html('<%= j crumbs @admin.ancestors %>');
-<% elsif @admins %>
-  $('.admins').html('<%= j render @admins %>');
-  $('#breadcrumbs').html('');
-<% end %>

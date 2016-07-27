@@ -1,0 +1,13 @@
+= form_for @subscriber, remote: true do |f|
+  %h3 Get the latest info
+  %p
+    Subscribe now to have announcements emailed to you once they are made
+  #create.cf
+  = render 'shared/errors', object: f.object
+  %fieldset
+    = f.label :name
+    = f.text_field :name
+  %fieldset
+    = f.label :email
+    = f.text_field :email
+  = f.submit 'Subscribe'

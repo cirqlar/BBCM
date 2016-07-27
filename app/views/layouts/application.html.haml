@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title
+      = title_er
+      BBCM
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    = csrf_meta_tags
+  %body
+    = render 'layouts/header'
+    #flash
+      - flash.each do |type, msg|
+        %p{:class => type}
+          = msg
+    = content_tag :div, render('layouts/topBar'), id: "topBar" if logged_in?
+    = yield
+    = render 'layouts/footer'
+    #modal
+      %i.fa.fa-times
+      #modalCont

@@ -1,0 +1,6 @@
+.admin
+  %h3= link_to admin.name, admin, remote: true
+  %h4= admin.email
+  %h5
+    = link_to "Edit", edit_admin_path(admin), class: "delete" if logged_in? && correct_admin?(admin)
+    = link_to "Delete", admin, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? && correct_admin?(admin)

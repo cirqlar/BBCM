@@ -1,0 +1,11 @@
+= form_for(@admin, url: password_reset_path(params[:id])) do |f|
+  = render 'shared/form_top'
+  = render 'shared/errors', object: f.object
+  = hidden_field_tag :email, @admin.email
+  %fieldset
+    = f.label :password
+    = f.password_field :password
+  %fieldset
+    = f.label :password_confirmation, "Confirm"
+    = f.password_field :password_confirmation
+  = f.submit "Change password"

@@ -1,0 +1,13 @@
+= form_for(@image, html: {multipart: true}) do |f|
+  = render 'shared/form_top'
+  = render 'shared/errors', object: f.object
+  %fieldset
+    = f.label :event
+    = f.text_field :event
+  %fieldset
+    = f.label :people
+    = f.text_field :people
+  %fieldset
+    = f.label :image
+    = f.file_field :image
+  = f.submit "Save Image"

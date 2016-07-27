@@ -1,0 +1,13 @@
+= form_for(@an) do |f|
+  = render 'shared/form_top'
+  = render 'shared/errors', object: f.object
+  %fieldset
+    = f.label :title
+    = f.text_field :title
+  %fieldset
+    = f.label :desc
+    = f.text_area :desc
+  %fieldset
+    = f.label :expires_at
+    = f.date_select :expires_at
+  = f.submit "Save Announcement"

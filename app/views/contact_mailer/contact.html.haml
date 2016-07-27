@@ -1,0 +1,14 @@
+%table.100p{:bgcolor => "rgb(56,195,0)", :border => "0", :cellpadding => "20", :cellspacing => "0", :style => "background: rgb(56,195,0);", :width => "640"}
+  %tr
+    %td{:align => "center", :style => "font-size:24px; color:#FFFFFF;"}
+      %font{:face => "'Athiti', Arial, sans-serif"} Dear BBCM
+%table.100p{:bgcolor => "#ffffff", :border => "0", :cellpadding => "20", :cellspacing => "0", :width => "640"}
+  %tr
+    %td{:align => "center", :style => "font-size:16px; color:#848484;"}
+      %font{:face => "'Athiti', Arial, sans-serif"}
+        %span{:style => "color:rgb(56,195,0); font-size:24px;"}
+          = @message[:title]
+          sent by #{@message[:sender]}(#{@message[:email]})#{@message[:time_sent]}
+        %br/
+        %br/
+        %span{:style => "font-size:16px;"}= simple_format @message[:content]

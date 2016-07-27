@@ -1,0 +1,12 @@
+#mediaCont
+  = render 'show_message'
+.cf.medias
+  .cont.cf
+    #tabs.cf
+      = return_tabs
+    = render 'tags'
+  .cf.mediasCont
+    - @messages.each do |message|
+      = link_to render(message), show_message_path(:id => message), remote:true, style: "background-image: url(#{message.media_processing ? '/img/processing_small.jpg' : message.poster.thumb.url})", class: 'medias'
+#scrolling
+  = will_paginate @messages, params: {controller: 'messages', action: 'index', type: params[:type], tag: params[:tag]}

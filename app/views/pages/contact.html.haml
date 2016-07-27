@@ -1,0 +1,40 @@
+#address
+  %h3
+    Come visit us anytime.
+    %br/
+    %span
+      We're always available.
+      %br>/
+      No. 28 Owokoniran street, Surulere, Lagos.
+#socialsCont
+  %h3 Find us on:
+  #socials
+    %a{:href => "https://www.facebook.com/Thebbcm-1772707156285316/", :target => "_blank"}
+      %img.social{:alt => "Facebook", :src => "/img/Facebook.png"}/
+      %span TheBBCM
+    %a{:href => "https://twitter.com/bbcm_church", :target => "_blank"}
+      %img.social{:alt => "Twitter", :src => "/img/Twitter.png"}/
+      %span @BBCM_church
+    %a{:href => "#"}
+      %img.social{:alt => "Google Plus", :src => "/img/GooglePlus.png"}/
+      %span BBCM church
+= form_for(:pages, url: send_path) do |f|
+  %h3 Have something to say?
+  %p
+    Send us an email with your questions, requests or prayer points and we'll be sure to get back to you
+    %br/
+    thebbcm@gmail.com
+  #create.cf
+  %fieldset
+    = f.label :sender, "Name"
+    = f.text_field :sender
+  %fieldset
+    = f.label :email
+    = f.email_field :email
+  %fieldset
+    = f.label :title
+    = f.text_field :title
+  %fieldset
+    = f.label :content
+    = f.text_area :content
+  = f.submit "Send email"

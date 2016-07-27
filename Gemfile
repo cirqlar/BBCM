@@ -47,6 +47,7 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'carrierwave_backgrounder'
 gem "font-awesome-rails"
+gem 'haml'
 
 
 group :development, :test do
@@ -64,6 +65,7 @@ group :development do
   gem 'capistrano3-puma',   require: false
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq', require: false
   gem 'capistrano-rbenv-vars'
+  gem "erb2haml"
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

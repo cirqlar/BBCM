@@ -98,6 +98,8 @@ GEM
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
+    erb2haml (0.1.5)
+      html2haml
     erubis (2.7.0)
     excon (0.51.0)
     execjs (2.7.0)
@@ -234,6 +236,13 @@ GEM
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
+    html2haml (2.0.0)
+      erubis (~> 2.7.0)
+      haml (~> 4.0.0)
+      nokogiri (~> 1.6.0)
+      ruby_parser (~> 3.5)
     i18n (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.3)
@@ -306,6 +315,8 @@ GEM
     redis (3.3.1)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
+    ruby_parser (3.8.2)
+      sexp_processor (~> 4.1)
     rufus-scheduler (3.2.1)
     sass (3.4.22)
     sass-rails (5.0.5)
@@ -317,6 +328,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sexp_processor (4.7.0)
     sidekiq (4.1.4)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -384,8 +396,10 @@ DEPENDENCIES
   carrierwave
   carrierwave_backgrounder
   coffee-rails (~> 4.1.0)
+  erb2haml
   fog
   font-awesome-rails
+  haml
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick

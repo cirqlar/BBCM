@@ -1,7 +1,0 @@
-<%= @an.title.split.map(&:capitalize).join(' ') %>
-
-Dear <%= @suber.name.split.map(&:capitalize).join(' ') %>
-
-<%= raw @an.desc %>
-
-Unsubscribe link: <%= subs_destroy_url(@suber, token: @suber.token) %>

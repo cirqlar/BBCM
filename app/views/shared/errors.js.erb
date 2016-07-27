@@ -1,5 +1,0 @@
-if ($('#errors').html()) {
-  $('#errors').html("<%= j render 'shared/errors', object: @subscriber %>");
-} else {
-  $('input[name=utf8]').after("<%= j render 'shared/errors', object: @subscriber %>")
-}

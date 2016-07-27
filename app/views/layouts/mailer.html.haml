@@ -1,0 +1,161 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title Test
+    :css
+      @import url(https://fonts.googleapis.com/css?family=Athiti:200,300); /*Calling our web font*/
+      
+      		/* Some resets and issue fixes */
+              #outlook a { padding:0; }
+      		body{ width:100% !important; -webkit-text; size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0; }
+              .ReadMsgBody { width: 100%; }
+              .ExternalClass {width:100%;}
+              .backgroundTable {margin:0 auto; padding:0; width:100%;!important;}
+              table td {border-collapse: collapse;}
+              .ExternalClass * {line-height: 115%;}
+      
+              /* End reset */
+      
+      
+      		/* These are our tablet/medium screen media queries */
+              @media screen and (max-width: 630px){
+      
+      
+      			/* Display block allows us to stack elements */
+                  *[class="mobile-column"] {display: block;}
+      
+      			/* Some more stacking elements */
+                  *[class="mob-column"] {float: none !important;width: 100% !important;}
+      
+      			/* Hide stuff */
+                  *[class="hide"] {display:none !important;}
+      
+      			/* This sets elements to 100% width and fixes the height issues too, a god send */
+      			*[class="100p"] {width:100% !important; height:auto !important;}
+      
+      			/* For the 2x2 stack */
+      			*[class="condensed"] {padding-bottom:40px !important; display: block;}
+      
+      			/* Centers content on mobile */
+      			*[class="center"] {text-align:center !important; width:100% !important; height:auto !important;}
+      
+      			/* 100percent width section with 20px padding */
+      			*[class="100pad"] {width:100% !important; padding:20px;}
+      
+      			/* 100percent width section with 20px padding left & right */
+      			*[class="100padleftright"] {width:100% !important; padding:0 20px 0 20px;}
+      
+      			/* 100percent width section with 20px padding top & bottom */
+      			*[class="100padtopbottom"] {width:100% !important; padding:20px 0px 20px 0px;}
+      
+      
+              }
+  %body
+    %div{:background => "http://www.thebbcm.com/img/pattern.png"}
+      %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "margin: 0; padding: 0", :width => "100%"}
+        %tr
+          %td{:align => "center", :valign => "top"}
+            %table.hide{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "640"}
+              %tr
+                %td{:height => "20"}
+            %table.100p{:bgcolor => "rgb(56,195,0)", :cellpadding => "0", :cellspacing => "0", :style => "background: rgb(56,195,0);", :width => "640"}
+              %tr
+                %td.100p{:valign => "top", :width => "640"}
+                  %div
+                    %table.100p{:border => "0", :cellpadding => "20", :cellspacing => "0", :width => "640"}
+                      %tr
+                        %td{:valign => "top"}
+                          %table.100p{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "600"}
+                            %tr
+                              %td.100p{:align => "left", :width => "50%"}
+                                %img{:alt => "Logo", :border => "0", :height => "100", :src => "http://www.thebbcm.com/img/logo.jpg", :style => "display:block", :width => "100"}/
+                          %table.100p{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "600"}
+                            %tr
+                              %td{:align => "center", :style => "color:#FFFFFF; font-size:24px;"}
+                                %font{:face => "'Athiti', Arial, sans-serif"}
+                                  %span{:style => "font-size:44px;"} BBCM
+                  /[if gte mso 9]
+                    </v:textbox>
+                    </v:rect>
+            = yield
+            %table.100p{:bgcolor => "#ffffff", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "640"}
+              %tr
+                %td{:align => "center", :valign => "top"}
+                  %table.100padtopbottom{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "600"}
+                    %tr
+                      %td.condensed{:align => "left", :valign => "top"}
+                        %table.mob-column{:align => "left", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "290"}
+                          %tr
+                            %td{:align => "center", :valign => "top"}
+                              %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                                %tr
+                                  %td.100padleftright{:align => "center", :valign => "top"}
+                                    %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                                      %tr
+                                        %td{:align => "center", :width => "135"}
+                                          %a{:href => "https://www.facebook.com/Thebbcm-1772707156285316/"}
+                                            %img{:alt => "Facebook", :border => "0", :src => "http://www.thebbcm.com/img/Facebook.png", :style => "display:block; width: 135px;"}/
+                                        %td{:width => "20"}
+                                        %td{:align => "center", :width => "135"}
+                                          %a{:href => "https://twitter.com/bbcm_church"}
+                                            %img{:alt => "Twitter", :border => "0", :src => "http://www.thebbcm.com/img/Twitter.png", :style => "display:block; width: 135px;"}/
+                                %tr
+                                  %td{:height => "10"}
+                                %tr
+                                  %td.100padleftright{:align => "center", :valign => "top"}
+                                    %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                                      %tr
+                                        %td{:align => "center", :style => "font-size:16px; color:rgb(56,195,0);", :valign => "top", :width => "135"}
+                                          %font{:face => "'Athiti', Arial, sans-serif"} Like our page: TheBBCM
+                                        %td{:width => "20"}
+                                        %td{:align => "center", :style => "font-size:16px; color:rgb(56,195,0);", :valign => "top", :width => "135"}
+                                          %font{:face => "'Athiti', Arial, sans-serif"} Follow us: @BBCM_Church
+                      %td.hide{:width => "20"}
+                      %td.condensed{:align => "left", :valign => "top"}
+                        %table.mob-column{:align => "left", :border => "0", :cellpadding => "0", :cellspacing => "0", :width => "290"}
+                          %tr
+                            %td{:align => "center", :valign => "top"}
+                              %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                                %tr
+                                  %td.100padleftright{:align => "center", :valign => "top"}
+                                    %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                                      %tr
+                                        %td{:align => "center", :width => "135"}
+                                          %a{:href => "#"}
+                                            %img{:alt => "Google+", :border => "0", :src => "http://www.thebbcm.com/img/GooglePlus.png", :style => "display:block; width: 135px;"}/
+                                        %td{:width => "20"}
+                                        %td{:align => "center", :width => "135"}
+                                          %a{:href => "http://www.thebbcm.com"}
+                                            %img{:alt => "BBCM", :border => "0", :src => "http://www.thebbcm.com/img/logo.jpg", :style => "display:block;", :width => "135"}/
+                                %tr
+                                  %td{:height => "10"}
+                                %tr
+                                  %td.100padleftright{:align => "center", :valign => "top"}
+                                    %table{:border => "0", :cellpadding => "0", :cellspacing => "0"}
+                                      %tr
+                                        %td{:align => "center", :style => "font-size:16px; color:rgb(56,195,0);", :valign => "top", :width => "135"}
+                                          %font{:face => "'Athiti', Arial, sans-serif"} Follow us: BBCM Church
+                                        %td{:width => "20"}
+                                        %td{:align => "center", :style => "font-size:16px; color:rgb(56,195,0);", :valign => "top", :width => "135"}
+                                          %font{:face => "'Athiti', Arial, sans-serif"} Checkout our site: TheBBCM.com
+                    %tr
+                      %td{:height => "35"}
+            %table.100p{:bgcolor => "rgb(56,195,0)", :border => "0", :cellpadding => "20", :cellspacing => "0", :style => "background: rgb(56,195,0);", :width => "640"}
+              %tr
+                %td{:align => "center", :style => "font-size:16px; color:#ffffff;"}
+                  %font{:face => "'Athiti', Arial, sans-serif"}
+                    %span{:style => "font-size:24px;"} Don't Forget
+                    %br/
+                    %br/
+                    %span{:style => "font-size:16px;"} Every Sunday at 9:00am. Come and worshp with us at No. 28 Owokoniran street, Surulere, Lagos. Come at 8:00am to join us in Sunday School. The Lord be with you.
+            %table.100p{:bgcolor => "#ffffff", :border => "0", :cellpadding => "20", :cellspacing => "0", :width => "640"}
+              %tr
+                %td{:align => "left", :style => "font-size:14px; color:#848484;", :width => "50%"}
+                  %font{:face => "'Athiti', Arial, sans-serif"} © BBCM
+                %td{:align => "right", :style => "font-size:14px; color:#848484;", :width => "50%"}
+                  %font{:face => "'Athiti', Arial, sans-serif"}= yield(:link)
+            %table.100p{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "640"}
+              %tr
+                %td{:height => "50"}

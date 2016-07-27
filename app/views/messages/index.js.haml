@@ -1,0 +1,19 @@
+- if params[:page]
+  $('#messages').append("#{j render @messages}");
+- else
+  $('#messages').html("#{j render @messages}");
+$('#tabs').html("#{j return_tabs}");
+$('#filterCont').replaceWith("#{j render 'tags'}");
+$('#filterCont').on('submit', function () {
+url = $(this).attr('action');
+url += '?' + $(this).serialize();
+history.pushState({}, '', url);
+});
+- if @messages.next_page
+  $('#scrolling').html("#{j will_paginate @messages, params: {controller: 'messages', action: 'index', type: params[:type], tag: params[:tag]}}")
+  $('.pagination').hide()
+- else
+  $(window).off('scroll');
+  $('#scrolling').html("
+  %span> No more content
+  ");
