@@ -1,6 +1,6 @@
 #header
   #headerCont.cf
-    #left.headerItems.nav
+    #left.headerItems
       %span
         %a#logo{:href => "/"} BBCM
       #nav
@@ -8,7 +8,7 @@
         %span= link_to 'About', about_path, class: "#{'current' if action?('about')}"
         %span= link_to 'Contact', contact_path, class: "#{'current' if action?('contact')}"
         %span= link_to 'Gallery', gallery_path, class: "#{'current' if controller?('images')}"
-    #right.headerItems.nav
+    #right.headerItems
       %a{:href => "https://www.facebook.com/Thebbcm-1772707156285316/", :target => "_blank"}
         %i.fa.fa-facebook-square
       %a{:href => "https://twitter.com/bbcm_church", :target => "_blank"}

@@ -1,12 +1,14 @@
 #slideCont
   #slider{:style => "height: #{@slides.length * 100}%; top: 0;"}
     = render @slides, height: 100.0 / @slides.length
+
 .medias
   %h3 Our messages
   .mediasCont.cf
     - @messages.each do |message|
       = link_to render(message), show_message_path(:id => message), style: "background-image: url(#{message.poster.thumb.url})", class: 'medias'
   = link_to "View All Messages", messages_path, class: 'linkBtn'
+
 #serviceCont
   #servicer{:style => "height: 400%; top: 0;"}
     .service{:style => "background-image: url(/img/worship.jpg); height: 25%;"}
@@ -41,12 +43,14 @@
           Tuesdays @5:30pm come and receive GOD's word for you.
           %br>/
           No. 28 Owokoniran street, Surulere, Lagos.
+
 .medias
   %h3 Our gallery
   .mediasCont.cf
     - @images.each do |image|
       = link_to render(image), image, style: "background-image: url(#{image.image.thumb.url})", class: 'medias'
   = link_to "View Our Gallery", gallery_path, class: 'linkBtn'
+
 #about{:style => "background-image: url(/img/mission.jpg);"}
   #mission
     %h3
@@ -54,5 +58,6 @@
       %br/
       %span We preach Christ, his birth, his baptism, his works, his teachings, his crucification, his resurrection, his ascension, his second coming, his millennial reign, his white throne judgment, the new heaven and the new earth. He shall put all enemies under his feet and shall reign eternally and we shall abide with him forever and ever
     = link_to 'Learn more about us', about_path, class: 'linkBtn'
+
 #sub.cf
   = render 'subscribers/form'
