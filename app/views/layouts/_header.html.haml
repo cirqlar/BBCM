@@ -4,10 +4,9 @@
       %span
         %a#logo{:href => "/"} BBCM
       #nav
-        %span= link_to 'Messages', messages_path, class: "#{'current' if controller?('messages')}"
         %span= link_to 'About', about_path, class: "#{'current' if action?('about')}"
-        %span= link_to 'Contact', contact_path, class: "#{'current' if action?('contact')}"
         %span= link_to 'Gallery', gallery_path, class: "#{'current' if controller?('images')}"
+        %span= link_to 'Messages', messages_path, class: "#{'current' if controller?('messages')}"
     #right.headerItems
       %a{:href => "https://www.facebook.com/Thebbcm-1772707156285316/", :target => "_blank"}
         %i.fa.fa-facebook-square

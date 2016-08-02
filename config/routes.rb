@@ -3,7 +3,6 @@ require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   root 'pages#index'
-  get 'contact' => 'pages#contact'
   post 'send' => 'pages#create'
   get 'about' => 'pages#about'
 

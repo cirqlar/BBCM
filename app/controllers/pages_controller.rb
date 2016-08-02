@@ -5,10 +5,7 @@ class PagesController < ApplicationController
     @images = Image.all.take(6)
     @subscriber = Subscriber.new
   end
-
-  def contact
-  end
-
+  
   def create
     @message = params[:pages]
     ContactMailer.contact(@message).deliver_later
