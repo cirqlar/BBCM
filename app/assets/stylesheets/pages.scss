@@ -304,3 +304,25 @@
     }
   }
 }
+
+@media screen and (max-width: 1229px) {
+  .medias {
+    .mediasCont {
+      width: 830px;
+    }
+  }
+}
+
+@media screen and (max-width: 829px) {
+  .medias {
+    .mediasCont {
+      width: 400px;
+      max-width: 100%;
+
+      a.medias {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  }
+}

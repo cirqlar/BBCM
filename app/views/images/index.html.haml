@@ -1,6 +1,9 @@
+#pushDown
+
 .medias
   .cf.mediasCont
     - @images.each do |image|
       = link_to render(image), image, remote: true, style: "background-image: url(#{image.image.thumb.url})", class: 'medias'
+
 #scrolling
   = will_paginate @images

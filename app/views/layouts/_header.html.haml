@@ -3,6 +3,7 @@
     #left.headerItems
       %span
         %a#logo{:href => "/"} BBCM
+      %i.fa.fa-bars#menuBtn
       #nav
         %span= link_to 'About', about_path, class: "#{'current' if action?('about')}"
         %span= link_to 'Gallery', gallery_path, class: "#{'current' if controller?('images')}"
