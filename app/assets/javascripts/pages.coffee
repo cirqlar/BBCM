@@ -9,7 +9,9 @@ slider = ->
   if 0 > nextSlide || nextSlide > ($('.slide').length - 1)
     nextSlide = 0
 
-  $('#slider').css("top", "-#{nextSlide * 100}%")
+  for x in [1..$('.slide').length]
+    $('.slide')[x-1].style.opacity = 0
+    $('.slide')[nextSlide].style.opacity = 1
   nextSlide++
 
 nextService = 1
@@ -17,10 +19,24 @@ servicer = ->
   if 0 > nextService || nextService > ($('.service').length - 1)
     nextService = 0
 
-  $('#servicer').css("top", "-#{nextService * 100}%")
+  for x in [1..$('.service').length]
+    $('.service')[x-1].style.opacity = 0
+    $('.service')[nextService].style.opacity = 1
   nextService++
 
+setPoints = ->
+  if $('.slide').length == 0
+    console.log 'no'
+    return
+  titles = []
+  for x in [1..$('.slide').length]
+    titles[x-1] = $('.slide')[x-1].dataset.title
+  for title, index in titles
+    $('#slides').append("<li id='#{index}'>#{title}</li>")
+    console.log 'append'
+
 $(document).on 'turbolinks:load', ->
+  setPoints();
   sliderI = window.setInterval(slider, 7000)
   servicerI = window.setInterval(servicer, 7000)
 

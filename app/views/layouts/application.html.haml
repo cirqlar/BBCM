@@ -16,6 +16,7 @@
         %p{:class => type}
           = msg
     = content_tag :div, render('layouts/topBar'), id: "topBar" if logged_in?
+    
     = yield
     = render 'layouts/footer'
     #modal

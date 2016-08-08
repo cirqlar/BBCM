@@ -1,17 +1,15 @@
-#header
-  #headerCont.cf
-    #left.headerItems
-      %span
-        %a#logo{:href => "/"} BBCM
-      %i.fa.fa-bars#menuBtn
-      #nav
-        %span= link_to 'About', about_path, class: "#{'current' if action?('about')}"
-        %span= link_to 'Gallery', gallery_path, class: "#{'current' if controller?('images')}"
-        %span= link_to 'Messages', messages_path, class: "#{'current' if controller?('messages')}"
-    #right.headerItems
+#header.cf
+  %a#logo{href: "/"} BBCM
+  #nav
+    %i.fa.fa-bars#menuBtn
+    #social
       %a{:href => "https://www.facebook.com/Thebbcm-1772707156285316/", :target => "_blank"}
         %i.fa.fa-facebook-square
       %a{:href => "https://twitter.com/bbcm_church", :target => "_blank"}
         %i.fa.fa-twitter-square
       %a{:href => "#", :target => "_blank"}
         %i.fa.fa-google-plus-square
+    #links
+      %span= link_to 'About', about_path, class: "#{'current' if action?('about')}"
+      %span= link_to 'Gallery', gallery_path, class: "#{'current' if controller?('images')}"
+      %span= link_to 'Messages', messages_path, class: "#{'current' if controller?('messages')}"
