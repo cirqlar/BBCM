@@ -32,8 +32,7 @@ setPoints = ->
   for x in [1..$('.slide').length]
     titles[x-1] = $('.slide')[x-1].dataset.title
   for title, index in titles
-    $('#slides').append("<li id='#{index}'>#{title}</li>")
-    console.log 'append'
+    $('#slides').append("<span id='#{index}'>#{title}</span>")
 
 $(document).on 'turbolinks:load', ->
   setPoints();

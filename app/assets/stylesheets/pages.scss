@@ -36,10 +36,31 @@
   height: 100%;
   overflow: hidden;
 
-  #slides {
+  #snoCont {
     position: absolute;
-    display: block;
-    width: 100px;
+    display: flex;
+    align-items: center;
+    height: 300px;
+    margin-top: -150px;
+    top: 50%;
+    left: 50px;
+
+    #slides {
+      background-color: $rrtsblack;
+      padding: 10px 15px 10px 5px;
+
+      span {
+        display: block;
+        text-transform: capitalize;
+        cursor: pointer;
+        padding: 5px;
+        color: $white;
+
+        &:hover {
+          color: $color;
+        }
+      }
+    }
   }
 
   .slide {
