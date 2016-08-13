@@ -33,11 +33,28 @@ setPoints = ->
     titles[x-1] = $('.slide')[x-1].dataset.title
   for title, index in titles
     $('#slides').append("<span id='#{index}'>#{title}</span>")
+    g_addEvent $('#slides span')[index], 'click', clickPoints
+
+
+g_addEvent = (el, ev, fn, uC = true) ->
+  if el.addEventListener
+    el.addEventListener(ev, fn, uC)
+    true
+  else if (el.attachEvent)
+    el.attachEvent("on#{ev}", fn)
+
+clickPoints = ->
+  console.log window.event.srcElement.id
+  for x in [1..$('.slide').length]
+    $('.slide')[x-1].style.opacity = 0
+    $('.slide')[window.event.srcElement.id].style.opacity = 1
+  nextSlide = window.event.srcElement.id
 
 $(document).on 'turbolinks:load', ->
-  setPoints();
-  sliderI = window.setInterval(slider, 7000)
-  servicerI = window.setInterval(servicer, 7000)
+  unless $('.slide').length == 0
+    setPoints();
+    sliderI = window.setInterval(slider, 7000)
+    servicerI = window.setInterval(servicer, 7000)
 
 $(document).on 'turbolinks:before-visit', ->
   window.clearInterval(sliderI)
