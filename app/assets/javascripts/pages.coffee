@@ -14,16 +14,6 @@ slider = ->
     $('.slide')[nextSlide].style.opacity = 1
   nextSlide++
 
-nextService = 1
-servicer = ->
-  if 0 > nextService || nextService > ($('.service').length - 1)
-    nextService = 0
-
-  for x in [1..$('.service').length]
-    $('.service')[x-1].style.opacity = 0
-    $('.service')[nextService].style.opacity = 1
-  nextService++
-
 setPoints = ->
   if $('.slide').length == 0
     console.log 'no'
@@ -54,8 +44,6 @@ $(document).on 'turbolinks:load', ->
   unless $('.slide').length == 0
     setPoints();
     sliderI = window.setInterval(slider, 7000)
-    servicerI = window.setInterval(servicer, 7000)
 
 $(document).on 'turbolinks:before-visit', ->
   window.clearInterval(sliderI)
-  window.clearInterval(servicerI)

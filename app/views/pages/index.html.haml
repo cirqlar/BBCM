@@ -16,7 +16,8 @@
       = link_to render(message), show_message_path(:id => message), style: "background-image: url(#{message.poster.thumb.url})", class: 'medias'
   = link_to "View All Messages", messages_path, class: 'linkBtn'
 
-#serviceCont
+#serviceCont.cf
+  %h3 Our services
   .service{:style => "background-image: url(/img/worship.jpg);"}
     %h3
       Come worship with us.
