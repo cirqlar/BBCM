@@ -1,0 +1,2 @@
+- @messages.each do |message|
+  = link_to render(message), show_message_path(:id => message), remote:true, style: "background-image: url(#{message.media_processing ? '/img/processing_small.jpg' : message.poster.thumb.url})", class: 'medias'

@@ -12,10 +12,11 @@
         %param{:name => "flashvars", :value => "controls=true=#{@message.media.url}"}/
         %img{:height => "500", :src => "#{@message.poster.url}", :title => "No video playback capabilities", :width => "800"}/
   - else
-    #outPoster{:style => "background-image: url(#{@message.poster.url})"}
-    %audio#player2{:controls => "controls", :height => "40", :width => "100%"}
-      %source{:src => "#{@message.media.url}", :type => "audio/mpeg"}
-        %source{:src => "#{@message.media.url(:wav)}", :type => "audio/wav"}
+    #audio.cf
+      #outPoster{:style => "background-image: url(#{@message.poster.url})"}
+      %audio#player2{:controls => "controls", :height => "40", :width => "100%"}
+        %source{:src => "#{@message.media.url}", :type => "audio/mpeg"}
+          %source{:src => "#{@message.media.url(:wav)}", :type => "audio/wav"}
     :javascript
       var audio = document.getElementById('player2');
       var changeer = function () {

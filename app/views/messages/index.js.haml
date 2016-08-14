@@ -1,7 +1,7 @@
 - if params[:page]
-  $('#messages').append("#{j render @messages}");
+  $('.mediasCont').append("#{j render 'index_mess'}");
 - else
-  $('#messages').html("#{j render @messages}");
+  $('.mediasCont').html("#{j render 'index_mess'}");
 $('#tabs').html("#{j return_tabs}");
 $('#filterCont').replaceWith("#{j render 'tags'}");
 $('#filterCont').on('submit', function () {

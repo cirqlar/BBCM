@@ -6,19 +6,31 @@
 
 #mediaCont {
   position: relative;
-  width: 800px;
+  width: 100%;
   overflow: hidden;
   margin: 0px auto 10px auto;
-  background-color: $tswhite;
+
+  &.mes {
+    padding-top: 100px;
+  }
 
   #outPoster {
-    width: 100%;
-    height: 62.5vw;
-    max-height: 500px;
+    width: 60%;
+    height: 500px;
+    float: left;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     background-color: $rtscolor;
+  }
+
+  #audio {
+    width: 60%;
+    float: left;
+
+    #outPoster {
+      width: 100%;
+    }
   }
 
   .mejs-offscreen{
@@ -33,9 +45,10 @@
 
   .mejs-container {
   	position: relative;
+    float: left;
   	background: $rtscolor;
-    max-width: 100%;
-    max-height: 62.5vw;
+    max-width: 60%;
+    max-height: 500px;
   	text-align: left;
   	vertical-align: top;
   	text-indent: 0;
@@ -881,7 +894,13 @@
     color: #ffffff;
   }
 
+  .mejs-audio {
+    max-width: 100%;
+  }
+
   #descCont {
+    float: right;
+    width: 38%;
     padding: 5px 15px 5px 15px;
     text-align: justify;
 
@@ -932,6 +951,95 @@
       font-size: 12px;
       text-align: right;
       font-weight: 200;
+    }
+  }
+}
+
+.medias {
+  .cont {
+    width: 1220px;
+    margin: auto;
+    margin-bottom: 10px;
+
+    #tabs {
+      float: left;
+      width: 300px;
+
+      a {
+        display: inline-block;
+        width: 100px;
+        height: 40px;
+        float: left;
+        text-align: center;
+        color: $black;
+        text-decoration: none;
+
+        &:hover {
+          color: $color;
+        }
+
+        &.current {
+          color: $color;
+          border-bottom: 3px solid $color;
+        }
+      }
+    }
+
+    #filterCont {
+      float: right;
+      width: 300px;
+      padding: 0 10px;
+
+      input {
+        width: 200px;
+        border: none;
+        background-color: transparent;
+        float: right;
+        border-bottom: 3px solid $color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1229px) {
+  .medias {
+    .cont {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 829px) {
+  .medias {
+    .cont {
+
+      #tabs, #filterCont {
+        float: none;
+        margin: 10px auto;
+      }
+    }
+  }
+  #mediaCont {
+    #outPoster {
+      width: 100%;
+      max-height: 300px;
+      float: none;
+    }
+
+    #audio {
+      width: 100%;
+      float: none;
+    }
+
+    .mejs-container {
+      max-width: 100%;
+      float: none;
+    }
+
+    #descCont {
+      float: none;
+      width: 100%;
+      max-width: 100%;
     }
   }
 }
