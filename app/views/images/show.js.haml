@@ -1,4 +1,4 @@
-$('#modal').html("#{j content_tag(:div, image_tag('/img/close.svg'), id: 'close')} #{j render @image}").addClass('open');
+$('#modal').html("#{j content_tag(:div, image_tag('/img/close.svg'), id: 'close')} #{j render 'show_image', image: @image}").addClass('open');
 
 $('#close').click(function () {
 $('#modal').removeClass('open');
