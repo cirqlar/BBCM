@@ -1,4 +1,4 @@
-$('#gallery').append("#{j index_images @images}")
+$('.mediasCont').append("#{j render 'index_im'}")
 - if @images.next_page
   $('#scrolling').html("#{j will_paginate @images}")
   $('.pagination').hide()

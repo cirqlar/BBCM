@@ -15,8 +15,10 @@
       - flash.each do |type, msg|
         %p{:class => type}
           = msg
-    = content_tag :div, render('layouts/topBar'), id: "topBar" if logged_in?
-    
+    - if logged_in?
+      #topCont
+        = content_tag :div, render('layouts/topBar'), id: "topBar"
+
     = yield
     = render 'layouts/footer'
     #modal
