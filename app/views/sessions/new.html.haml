@@ -1,9 +1,9 @@
 = form_for(:session, url: login_path) do |f|
   %h3 Login
-  %fieldset
+  .field
     = f.label :email
     = f.email_field :email
-  %fieldset
+  .field
     = f.label :password
     = f.password_field :password
   = link_to "Forgot Password?", new_password_reset_path

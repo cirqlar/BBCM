@@ -2,17 +2,17 @@
   = render 'shared/form_top'
   = render 'shared/errors', object: f.object
   = f.hidden_field :parent_id
-  %fieldset
+  .field
     = f.label :name
     = f.text_field :name
-  %fieldset
+  .field
     = f.label :email
     = f.email_field :email
-  %fieldset
+  .field
     = f.label :password
     = f.password_field :password
   - if params[:action] != 'edit'
-    %fieldset
+    .field
       = f.label :password_confirmation, "Confirm"
       = f.password_field :password_confirmation
   = f.submit params[:action] == 'new' ? "Create Admin" : "Edit Admin"

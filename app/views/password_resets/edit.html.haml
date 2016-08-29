@@ -2,10 +2,10 @@
   = render 'shared/form_top'
   = render 'shared/errors', object: f.object
   = hidden_field_tag :email, @admin.email
-  %fieldset
+  .field
     = f.label :password
     = f.password_field :password
-  %fieldset
+  .field
     = f.label :password_confirmation, "Confirm"
     = f.password_field :password_confirmation
   = f.submit "Change password"

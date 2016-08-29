@@ -1,10 +1,10 @@
 = form_for(@slide, html: {multipart: true}) do |f|
   = render 'shared/form_top'
   = render 'shared/errors', object: f.object
-  %fieldset
+  .field
     = f.label :image
     = f.file_field :image
-  %fieldset
+  .field
     = f.label :title
     = f.text_field :title
   = f.submit 'Save Slide'

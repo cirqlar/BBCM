@@ -1,19 +1,19 @@
 = form_for(@message, html: {multipart: true}) do |f|
   = render 'shared/form_top'
   = render 'shared/errors', object: f.object
-  %fieldset
+  .field
     = f.label :title
     = f.text_field :title
-  %fieldset
-    = f.label :description, Info
+  .field
+    = f.label :description, "Info"
     = f.text_area :description
-  %fieldset
-    = f.label :tag_list, Tags
-    = f.text_field :tag_list, value: @message.tag_list ? @message.tag_list.join(, ) :
-  %fieldset
+  .field
+    = f.label :tag_list, "Tags"
+    = f.text_field :tag_list, value: @message.tag_list ? @message.tag_list.join(", ") : ""
+  .field
     = f.label :poster
     = f.file_field :poster
-  %fieldset
+  .field
     = f.label :media
     = f.file_field :media
-  = f.submit Save Message
+  = f.submit "Save Message"

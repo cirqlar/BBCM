@@ -25,16 +25,16 @@
     %br/
     thebbcm@gmail.com
   #create.cf
-  %fieldset
+  .field
     = f.label :sender, "Name"
     = f.text_field :sender
-  %fieldset
+  .field
     = f.label :email
     = f.email_field :email
-  %fieldset
+  .field
     = f.label :title
     = f.text_field :title
-  %fieldset
+  .field
     = f.label :content
     = f.text_area :content
   = f.submit "Send email"

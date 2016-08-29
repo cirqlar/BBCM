@@ -4,10 +4,10 @@
     Subscribe now to have announcements emailed to you once they are made
   #create.cf
   = render 'shared/errors', object: f.object
-  %fieldset
+  .field
     = f.label :name
     = f.text_field :name
-  %fieldset
+  .field
     = f.label :email
     = f.text_field :email
   = f.submit 'Subscribe'
