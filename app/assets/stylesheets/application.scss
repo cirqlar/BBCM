@@ -437,6 +437,13 @@ form {
   width: 100%;
   padding: 10px 5%;
 
+  &:before {
+    content: " ";
+    height: 70px;
+    display: block;
+    width: 100%;
+  }
+
   h3 {
     text-align: center;
     text-transform: uppercase;

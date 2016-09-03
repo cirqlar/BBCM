@@ -5,7 +5,7 @@
   %p
     = params[:controller] == 'announcements' ? truncate(an.desc, length: 300) : truncate(an.desc, length: 110) if params[:action] != 'show'
     = simple_format an.desc if params[:action] == 'show'
-  = link_to "Back", announcements_path  if params[:action] == 'show'
+  = link_to "Back", announcements_path, class: "delete"  if params[:action] == 'show'
   = link_to "Edit", edit_announcement_path(an), class: "delete" if logged_in? && params[:action] == 'show'
   = link_to "Delete", an, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in? && params[:action] == 'show'
   %span

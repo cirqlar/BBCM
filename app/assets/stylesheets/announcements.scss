@@ -3,3 +3,44 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "partials/vars";
+
+div#ans, div#anShow {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  background-color: $white;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.an {
+  a, h3 {
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0;
+    color: $black;
+    font-weight: 400;
+    font-size: 1.5em;
+
+    &.delete {
+      font-weight: 300;
+      font-size: 0.8em;
+    }
+  }
+
+  a {
+    &:hover {
+      color: $color;
+    }
+  }
+
+  p {
+    margin: 10px 0;
+    font-size: 1em;
+  }
+
+  span {
+    font-size: 0.8em;
+    color: $rtsblack;
+  }
+}
