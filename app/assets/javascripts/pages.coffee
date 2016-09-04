@@ -41,7 +41,7 @@ clickPoints = ->
   nextSlide = window.event.srcElement.id
 
 $(document).on 'turbolinks:load', ->
-  unless $('.slide').length == 0
+  unless $('#snoCont').length == 0
     setPoints();
     sliderI = window.setInterval(slider, 7000)
 
