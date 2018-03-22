@@ -45,7 +45,7 @@ gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'sinatra', require: false
 gem 'slim'
-gem 'carrierwave_backgrounder'
+gem 'carrierwave_backgrounder', :github => 'lardawge/carrierwave_backgrounder'
 gem "font-awesome-rails"
 gem 'haml'
 
