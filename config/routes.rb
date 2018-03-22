@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :messages, except: [:show]
   get 'message' => 'messages#show', as: :show_message
 
+  resources :audio, except: [:show]
+  get 'audio' => 'audio#show', as: :show_audio
+
   resources :slides, except: [:show]
   resources :announcements, :path => 'ans'
   resources :subscribers, only: [:create]
