@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,87 +10,102 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719004604) do
+ActiveRecord::Schema.define(version: 20180322220128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admins", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "ancestry"
-    t.string   "reset_digest"
+  create_table "admins", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.string "reset_digest"
     t.datetime "reset_sent_at"
-    t.integer  "ancestry_depth",  default: 0
+    t.integer "ancestry_depth", default: 0
+    t.index ["ancestry"], name: "index_admins_on_ancestry"
   end
 
-  add_index "admins", ["ancestry"], name: "index_admins_on_ancestry", using: :btree
-
-  create_table "announcements", force: :cascade do |t|
-    t.string   "title"
-    t.text     "desc"
+  create_table "announcements", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date     "expires_at"
+    t.date "expires_at"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string   "event"
-    t.string   "people"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "image"
-    t.boolean  "image_processing", default: false, null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.string   "media"
-    t.string   "title"
-    t.text     "description"
-    t.string   "poster"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "content_type"
-    t.string   "media_tmp"
-    t.boolean  "media_processing", default: false, null: false
-  end
-
-  create_table "slides", force: :cascade do |t|
-    t.string   "image"
-    t.string   "title"
+  create_table "audios", force: :cascade do |t|
+    t.string "audio"
+    t.string "title"
+    t.text "description"
+    t.string "poster"
+    t.string "media_tmp"
+    t.boolean "media_processing", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "subscribers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
+  create_table "images", id: :serial, force: :cascade do |t|
+    t.string "event"
+    t.string "people"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "token"
+    t.string "image"
+    t.boolean "image_processing", default: false, null: false
   end
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
+  create_table "messages", id: :serial, force: :cascade do |t|
+    t.string "media"
+    t.string "title"
+    t.text "description"
+    t.string "poster"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "content_type"
+    t.string "media_tmp"
+    t.boolean "media_processing", default: false, null: false
+  end
+
+  create_table "slides", id: :serial, force: :cascade do |t|
+    t.string "image"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subscribers", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "token"
+  end
+
+  create_table "taggings", id: :serial, force: :cascade do |t|
+    t.integer "tag_id"
+    t.string "taggable_type"
+    t.integer "taggable_id"
+    t.string "tagger_type"
+    t.integer "tagger_id"
+    t.string "context", limit: 128
     t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context"
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+    t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string  "name"
+  create_table "tags", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
 end
