@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  audio: MyString
+  title: MyString
+  description: MyText
+  poster: MyString
+  media_tmp: MyString
+  media_processing: 
+
+two:
+  audio: MyString
+  title: MyString
+  description: MyText
+  poster: MyString
+  media_tmp: MyString
+  media_processing: 
