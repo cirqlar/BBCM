@@ -48,6 +48,7 @@ gem 'slim'
 gem 'carrierwave_backgrounder', :github => 'lardawge/carrierwave_backgrounder'
 gem "font-awesome-rails"
 gem 'haml'
+gem "jquery-rails"
 
 
 group :development, :test do
