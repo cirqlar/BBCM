@@ -1,0 +1,19 @@
+= form_for(@audio, html: {multipart: true}) do |f|
+  = render 'shared/form_top'
+  = render 'shared/errors', object: f.object
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description, "Info"
+    = f.text_area :description
+  .field
+    = f.label :tag_list, "Tags"
+    = f.text_field :tag_list, value: @audio.tag_list ? @audio.tag_list.join(", ") : ""
+  .field
+    = f.label :poster
+    = f.file_field :poster
+  .field
+    = f.label :audio
+    = f.file_field :audio
+  = f.submit "Save Message"

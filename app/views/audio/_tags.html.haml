@@ -1,0 +1,4 @@
+= form_tag(audio_path, :method => "get", remote: true, id: "filterCont", class: "cf") do
+  = hidden_field_tag :type, params[:type]
+  = label_tag :tag, "Filter Tags"
+  = search_field_tag :tag, params[:tag], placeholder: "e.g. Inspiration"

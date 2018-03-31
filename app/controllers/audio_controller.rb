@@ -3,17 +3,13 @@ class AudioController < ApplicationController
   before_action :get_audio, only: [:show, :edit, :update, :destroy]
 
   def index
-    @audio = Audio.all
-
-    if params[:type] && params[:type] != ""
-      @audio = @audio.where("content_type = ?", params[:type])
-    end
+    @audios = Audio.all
 
     if params[:tag] && params[:tag] != ""
-      @audio = @audio.tagged_with(params[:tag])
+      @audios = @audios.tagged_with(params[:tag])
     end
 
-    @audio = @audio.paginate(page: params[:page], per_page: 10)
+    @audios = @audios.paginate(page: params[:page], per_page: 10)
 
     respond_to do |format|
       format.html { @audio = Audio.where("media_processing = ?", false).first }

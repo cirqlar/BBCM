@@ -1,0 +1,12 @@
+#mediaCont.mes.cf
+  = render 'show_audio'
+.cf.medias
+  .cont.cf
+    #tabs.cf
+      = return_tabs
+    = render 'tags'
+  .cf.mediasCont
+    - @audios.each do |audio|
+      = link_to render(audio), show_audio_path(:id => audio), remote:true, style: "background-image: url(#{audio.media_processing ? '/img/processing_small.jpg' : audio.poster.thumb.url})", class: 'medias'
+#scrolling
+  = will_paginate @audios, params: {controller: 'audio', action: 'index', tag: params[:tag]}

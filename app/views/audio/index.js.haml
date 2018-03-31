@@ -1,0 +1,19 @@
+- if params[:page]
+  $('.mediasCont').append("#{j render 'index_aud'}");
+- else
+  $('.mediasCont').html("#{j render 'index_aud'}");
+$('#tabs').html("#{j return_tabs}");
+$('#filterCont').replaceWith("#{j render 'tags'}");
+$('#filterCont').on('submit', function () {
+url = $(this).attr('action');
+url += '?' + $(this).serialize();
+history.pushState({}, '', url);
+});
+- if @audios.next_page
+  $('#scrolling').html("#{j will_paginate @audios, params: {controller: 'audio', action: 'index', tag: params[:tag]}}")
+  $('.pagination').hide()
+- else
+  $(window).off('scroll');
+  $('#scrolling').html("
+  %span> No more content
+  ");

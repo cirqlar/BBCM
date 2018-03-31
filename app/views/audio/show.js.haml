@@ -1,0 +1,10 @@
+$('#mediaCont').html("#{j render 'show_audio'}");
+
+$('video, audio').mediaelementplayer({
+plugins: ['flash', 'silverlight'],
+pluginPath: "/deps/",
+flashName: "flashmediaelement.swf",
+silverlightName: "silverlightmediaelement.xap"
+})
+
+$("html, body").animate({ scrollTop: 0 }, 500);

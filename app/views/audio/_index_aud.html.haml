@@ -1,0 +1,2 @@
+- @audios.each do |audio|
+  = link_to render(audio), show_audio_path(:id => audio), remote:true, style: "background-image: url(#{audio.media_processing ? '/img/processing_small.jpg' : audio.poster.thumb.url})", class: 'medias'
