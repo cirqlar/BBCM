@@ -23,11 +23,14 @@
 -#         audio.removeAttribute('src');
 -#       }
 -#       window.setTimeout(changeer, 1000);
-#descCont
-  %h3.title= @audio.title
-  %p.desc= @audio.description
-  %span.tags
-    Tags: #{raw tag_links @audio.tag_list}
-  = link_to "Edit", edit_audio_path(@audio), class: "delete" if logged_in?
-  = link_to "Delete", @audio, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in?
-  %span.date= @audio.updated_at.strftime("%H:%M %A, %d %B %Y")
+- unless @audio.blank?
+  #descCont
+    %h3.title= @audio.title
+    %p.desc= @audio.description
+    %span.tags
+      Tags: #{raw tag_links @audio.tag_list}
+    = link_to "Edit", edit_audio_path(@audio), class: "delete" if logged_in?
+    = link_to "Delete", @audio, method: :delete, class: "delete", data: {confirm: "Are you sure?"} if logged_in?
+    %span.date= @audio.updated_at.strftime("%H:%M %A, %d %B %Y")
+- else
+  %p No audio :(

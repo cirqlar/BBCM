@@ -1,4 +1,7 @@
 #pushDown
 
 #ans
-  = render @ans
+  - unless @ans.empty?
+    = render @ans
+  - else
+    %p There are no announcements

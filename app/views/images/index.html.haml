@@ -2,8 +2,11 @@
 
 .medias
   .cf.mediasCont
-    - @images.each do |image|
-      = link_to render(image), image, remote: true, style: "background-image: url(#{image.image.thumb.url})", class: 'medias'
+    - unless @images.empty?
+      - @images.each do |image|
+        = link_to render(image), image, remote: true, style: "background-image: url(#{image.image.thumb.url})", class: 'medias'
+    - else
+      %p There are no images
 
 #scrolling
   = will_paginate @images
